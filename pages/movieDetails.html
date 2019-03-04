@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navigation-bar">
+        <div class="section-container">
+            <h1 class="logo">MOVIE<span>bit</span></h1>
+            <ul class="navigation">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link" data-id="login">Login</a></li>
+                <li><a href="#" class="nav-link" data-id="register">Register</a></li>
+            </ul>
+            <div class="burger-menu">
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    </nav> 
+    <div id=picture>
+        <img src="C:\Users\vaio\Desktop\Scoala IT\Final Project\Test\nice_guys1.jpg" width="100%" ;></div>
+    <div id=details class=details>
+
+
+        <div id=movie_title>
+
+            <section id="title">Movie Title</section>
+            <section><button type="button" id="edit_btn">Edit</button></section>
+            <section><button type="button" id="delete_btn">Delete</button></section>
+
+
+        </div>
+
+        <div id=movie_details>
+            <section id="Year" class="details_mov">2016</section>
+            <section id="Genre" class="details_mov">Comedy</section>
+            <section id="Duration" class="details_mov">120m</section>
+        </div>
+
+        <h3>Description</h3>
+        <p class="mov_description">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+
+        <div id="ratings">
+            <section id="type">Type:</section>
+            <section id="Language">Language: </section>
+            <section id="Country">Country: </section>
+            <section id="imdbID"> imdbID: </section>
+            <section id="imdbRating">IMDB Rating: </section>
+            <section id="imdbVotes">IMDB votes: </section>
+        </div>
+
+
+
+    </div>
+
+    <script src="../models/Auth.js"></script>
+    <script src="../models/Movie.js"></script>
+    <script src="../models/MovieList.js"></script>
+    <script src="../views/home.js"></script>
+    <script src="../views/movieDetails.js"></script>
+
+</body>
+
+</html>

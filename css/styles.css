@@ -278,3 +278,90 @@ a {
         right: 60px;
     }    
 }
+
+/* de pe local css*/
+
+#picture {
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+
+#details {
+    float: right;
+    width: 40%;
+    background-color: black;
+    height: 575px;
+
+}
+
+#title {
+    float: left;
+    font-size: 25px;
+    width: 70%;
+    color: orange;
+    background-color: black;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+
+#edit_btn {
+    width: 12%;
+    float: left;
+    margin-top: 3px;
+    }
+
+#delete_btn {
+    width: 12%;
+    margin-top: 3px;
+
+}
+
+#Year {
+    color: grey;
+    width: 20%;
+}
+
+#Genre {
+    color: grey;
+    width: 20%;
+    display: inline-block;
+}
+
+#Duration {
+    color: grey;
+    width: 60%;
+    display: inline-block;
+}
+
+#movie_details {
+    height: 50px;
+    margin-left: 10px;
+}
+
+p {
+    color: grey;
+    background-color: black;
+    height: 150px;
+    margin: 10px;
+}
+
+h3 {
+       color: grey;
+    background-color: black;
+    margin-left: 10px;
+}
+
+#header {
+    background-color: black;
+    color: orange;
+    height: 25px;
+    font-size: 24px;
+    padding: 12px;
+    }
+
+#ratings {
+    color:orange;
+    margin-left: 10px;
+}
