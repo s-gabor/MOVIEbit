@@ -99,3 +99,115 @@ function displayMovies(movies) {
 }
 
 
+// Search functionality
+(function () {
+
+    var searchBtn = $('#searchBtn');
+  
+    searchBtn.on('click', function () {
+      var searchParams = gatherData();
+      ajaxCall(searchParams);
+    })
+  
+    function gatherData() {
+      var searchParams = {};
+  
+      var title = $('#title').val().trim();
+  
+      if(title != ""){
+        searchParams.Title = title;
+      }
+  
+      var yearBox = $('#yearBox');
+      var year = $('#year').val().trim();
+  
+      if(year != "" && yearBox.is(":checked")){
+        searchParams.Year = year;
+      }
+  
+      var runtimeBox = $('#runtimeBox');
+      var runtime = $('#runtime').val();
+  
+      if(runtimeBox.is(":checked") && runtime != ""){
+        searchParams.Runtime = runtime.trim() + ' min';
+      }
+  
+      var genreBox = $('#genreBox');
+      var genre = $('#genre').val();
+  
+      if(genreBox.is(":checked") && genre != ""){
+        searchParams.Genre = genre;
+      }
+  
+      var languageBox = $('#languageBox');
+      var language = $('#language').val();
+  
+      if(languageBox.is(":checked") && language != ""){
+        searchParams.Language = language;
+      }
+  
+  
+      var countryBox = $('#countryBox');
+      var country = $('#country').val();
+  
+      if(countryBox.is(":checked") && country != "") {
+        searchParams.Country = country;
+      }
+  
+      var posterBox = $('#posterBox');
+      var poster = $('#poster').val();
+  
+      if(posterBox.is(":checked") && poster != ""){
+        searchParams.Poster = poster;
+      }
+  
+      var imdbRatingBox = $('#imdbRatingBox');
+      var imdbRating = $('#imdbRating').val();
+  
+      if(imdbRatingBox.is(":checked") && imdbRating != ""){
+        searchParams.imdbRating = imdbRating;
+      }
+  
+      var imdbVotesBox = $('#imdbVotesBox');
+      var imdbVotes = $('#imdbVotes').val();
+    
+      if(imdbVotesBox.is(":checked") && imdbVotes != ""){
+        searchParams.imdbVotes = imdbVotes;
+      }
+  
+      var imdbIDBox = $('#imdbIDBox');
+      var imdbID = $('#imdbID').val();
+  
+      if(imdbIDBox.is(":checked") && imdbID != ""){
+        searchParams.imdbID = imdbID;
+      }
+  
+      var typeBox = $('#typeBox');
+      var type = $('#type').val();
+  
+      if(typeBox.is(":checked") && type != ""){
+        searchParams.Type = type;
+      }
+      return searchParams;
+    }
+  
+    function showResults(data) {
+      var results = $('#results');
+      var template = '';
+      results.empty();
+      for (let i = 0; i < data.length; i++) {
+        const el = data[i];
+        template += '<div class="column">';
+        template += '<div class="content">';
+        template +='<picture><img src="'+ el.Poster +'" style="width:auto; alt='+ el.Title +'"></picture>';
+        template +='<h4 style="width:250px;">'+ el.Title + '</h4>';
+        template += '<p>' + el.Genre +'</p>';
+        template += '<p>' + el.Language +'</p>';
+        template += '<p>' + el.Country +'</p>';
+       // template += '<p>' + el.Poster +'</p>';
+        template += '</div>';
+        template += '</div>';
+      }
+      results.append(template);
+    }
+  })();

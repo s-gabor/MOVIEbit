@@ -21,3 +21,26 @@ Movies.prototype.getMovies = function() {
    this.imdbRating = options.imdbRating;
    this.imdbID = options.imdbID
  }
+
+
+//  Search and Display Movies functions
+function ajaxCall(searchParams) {
+    
+  $.ajax({
+    url: "https://ancient-caverns-16784.herokuapp.com/movies",
+    type: "GET",
+    data: searchParams,
+    beforeSend: function() {
+      $("body").css('cursor', 'wait');
+    },
+    success: function (data) {
+      console.log(data);
+      document.body.style.cursor = 'context-menu';
+      showResults(data.results);
+    },
+    error: function (response) {
+      alert(response)
+    }
+  });
+
+}

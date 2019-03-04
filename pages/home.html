@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
     <title>Document</title>
@@ -47,7 +48,94 @@
             </div>
         </div>
     </section>
-    
+
+    <section class="search-container">
+        <h2>MOVIES SEARCH</h2>
+        <div class="row" style="text-align:center">
+            <input type="text" id="title" class="search-input" placeholder="Search movie...">
+        </div>
+        <div class="row myBtnContainer">
+            <h3><i>Filters:</i></h3>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="yearBox"> Year:
+                    <input type="text" id="year" class="search-creteria" placeholder="eg. 2008">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label for="">
+                    <input type="checkbox" id="runtimeBox"> Runtime:
+                    <input type="text" id="runtime" class="search-creteria" placeholder="50 min">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="genreBox"> Genre:
+                    <input type="text" id="genre" class="search-creteria" placeholder="Animation, Action,">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="languageBox"> Language:
+                    <input type="text" id="language" class="search-creteria" placeholder="English">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label class="form-check-label">
+                    <input type="checkbox" id="countryBox"> Country:
+                    <input type="text" id="country" class="search-creteria" placeholder="USA">
+                </label>
+            </div>
+        </div>
+        <div class="row myBtnContainer">
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="posterBox"> Poster:
+                    <input type="text" id="poster" class="search-creteria" placeholder="eg. 8.4">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="imdbRatingBox"> imdbRating:
+                    <input type="text" id="imdbRating" class="search-creteria" placeholder="eg. 8.4">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="imdbVotesBox"> imdbVotes:
+                    <input type="text" id="imdbVotes" class="search-creteria"
+                        placeholder="eg. 39,742">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="imdbIDBox"> imdbID:
+                    <input type="text" id="imdbID" class="search-creteria"
+                        placeholder="eg. tt2166834">
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    <input type="checkbox" id="typeBox"> Type:
+                    <input type="text" id="type" class="search-creteria"
+                        placeholder="eg. movie">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-primary" id="searchBtn" style="border-radius:5px;"> Search</button>
+            </div>
+        </div>
+        
+        </div>
+        <h3><i>Results:</i></h3>
+        <div class="row" id="results"></div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../models/MovieList.js"></script>
