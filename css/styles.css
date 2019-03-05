@@ -9,9 +9,11 @@
     --secondary-color: #1E1E1E;
     --third-color: #808080;
     --forth-color: #424242;
+    --fifth-color: #ffffff;
 
     --main-font: 'Open Sans', sans-serif;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -25,7 +27,20 @@ body {
 a {
     color: var(--main-color);
     text-decoration: none;
+    outline: none;
+    transition: all ease-in-out 500ms;
 }
+
+a:hover {
+    color: var(--main-color);
+}
+
+.clearfix::after,
+.clearfix::before {
+    content: "";
+    clear: both;
+    display: table;
+  }
 
 .section-container {
     display: block;
@@ -39,7 +54,6 @@ a {
         padding: 0 60px;
     }    
 }
-
 
 /* ----------------NAVIGATION BAR------------------ */
 
@@ -92,10 +106,6 @@ a {
     text-align: right;
     padding: 0 15px 0 30px;
     transition: all ease-in-out 500ms;
-}
-
-.nav-link:hover {
-    color: var(--hover-color);
 }
 
 .nav-link:focus {
@@ -279,6 +289,312 @@ a {
     }    
 }
 
+/* ---------------- ADD MOVIE ------------------ */
+
+.add-movie-section {
+    background: var(--default-color);
+}
+
+.add-btn {
+    float: right;
+    padding: 15px 0;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.cls-1 {
+    fill:#fff;
+    fill-opacity: 0;
+    stroke:var(--main-color);
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+}
+
+.cls-2 {
+    fill:var(--main-color);
+}
+
+.cls-1,
+.cls-2 {
+    transition: all ease-in-out 400ms;    
+}
+
+.add-btn:hover {
+    color: var(--main-color);
+}
+
+.add-btn:hover .cls-1,
+.filter-text:hover .cls-1 {
+    fill: var(--main-color);
+    fill-opacity: 1;
+}
+
+.add-btn:hover .cls-2,
+.filter-text:hover .cls-2 {
+    fill: var(--default-color);
+}
+
+.svg-plus {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.svg-plus {
+    width: 25px;
+}
+
+/* ---------------- SEARCH AND MOVIES ------------------ */
+
+.search-populate-movies {
+    background-image: linear-gradient(to right, var(--default-color) 5%, var(--secondary-color) 95%);
+    font-size: 0;
+    padding: 25px 0;
+}
+
+.search-container,
+.movie-populate-container {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px 0;
+}
+
+/* ---------------- SEARCH BLOCK ------------------ */
+
+.search-container {
+    width: 100%;
+    font-size: 18px;
+}
+
+.search-btn-container {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    background: rgba(255, 255, 255, .2);
+    padding: 5px 10px;
+    border: 2px solid var(--main-color); 
+    border-radius: 30px;  
+    color: var(--main-color);    
+}
+
+.search-creteria {
+    width: 100%;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    position: absolute;
+    color: var(--main-color);
+    top: 6px;
+    right: 5px;
+}
+
+::placeholder {
+    color: var(--main-color);
+    opacity: 1; 
+}
+
+:-ms-input-placeholder { 
+    color: var(--main-color);
+}
+
+::-ms-input-placeholder { 
+    color: var(--main-color);
+}
+
+.search-btn .fa-search {
+    height: 20px;
+    fill: var(--main-color);
+    transition: all ease-in-out 300ms;
+}
+
+.search-btn .fa-search:hover {
+    transform: scale(1.1);
+}
+
+.fa-search path {
+    fill: var(--main-color);
+}
+
+.filter-text {
+    font-size: 21px;
+    font-weight: 700;
+    padding: 15px 0;
+}
+
+.filter-desktop {
+    display: none;
+}
+
+.filter-mobile {
+    display: block;
+}
+
+.filter-item {
+    font-size: 0;
+    padding: 20px 0;
+}
+
+.search-checkbox,
+.form-check-label,
+.search-criteria {
+    display: inline-block;
+    font-size: 18px;
+}
+
+.form-check-label {
+    padding: 0 5px;
+    position: relative;
+}
+
+.search-checkbox {
+    opacity: 0;
+}
+
+.form-check-label::before {
+    content:url("../img/checkbox-unchecked.png");
+    display: block;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    top: 0;
+    left: -20px;
+}
+
+.search-checkbox:checked ~ .form-check-label::before {
+    content:url("../img/checkbox-checked.png");
+}
+
+.filter-item .search-criteria {
+    height: 20px;
+    width: 30%;
+    float: right;
+    background: var(--secondary-color);
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    padding: 5px;
+    color: var(--main-color);
+    font-size: 14px;
+    display: none;
+}
+
+.search-checkbox:checked ~ .search-criteria {
+    display: inline-block;
+}
+
+@media all and (min-width: 768px) {
+    .search-container {
+        width: 16.66%;
+        font-size: 18px;
+    }
+
+    .search-input {
+        margin-top: 5px;
+    }
+
+    .search-btn {
+        top: 11px;
+    }
+
+    .filter-text {
+        font-size: 32px;
+        padding: 30px 0;
+    }
+
+    .filter-desktop {
+        display: block;
+    }
+
+    .filter-mobile {
+        display: none;
+    }
+}
+
+/* ---------------- POPULATE MOVIE BLOCK ------------------ */
+
+.movie-populate-container {
+    width: 100%;
+    font-size: 0;  
+}
+
+.movie-header-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.site-motto {
+    display: none;
+}
+
+.movie-header-title span {
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+.movie-item {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0;
+    transition: all ease-in-out 300ms;
+}
+
+.movie-item:hover {
+    transform: scale(1.02);
+}
+
+.movie-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-populate-container .movie-title {
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 10px 0;
+    text-align: left;
+}
+
+@media all and (min-width: 768px) {    
+    .movie-populate-container {
+        width: 83.33%;  
+        padding-left: 25px; 
+    }
+
+    .movie-header-title,
+    .site-motto {
+        display: inline-block;
+    }
+
+    .movie-header-title {
+        font-size: 48px;
+        float: left;
+        padding-left: 20px;
+    }
+
+    .site-motto {
+        font-size: 21px;
+        float: right;
+        padding-top: 27px;
+    }
+
+    .movie-item {
+        width: 20%;
+        padding: 30px 0 30px 20px;
+    }
+
+    .movie-item:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* ---------------- FOOTER ------------------ */
+
+
 /* de pe local css*/
 
 #picture {
@@ -293,17 +609,6 @@ a {
     background-color: black;
     height: 575px;
 
-}
-
-#title {
-    float: left;
-    font-size: 25px;
-    width: 70%;
-    color: orange;
-    background-color: black;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    margin-top: 3px;
 }
 
 #edit_btn {
@@ -340,18 +645,6 @@ a {
     margin-left: 10px;
 }
 
-p {
-    color: grey;
-    background-color: black;
-    height: 150px;
-    margin: 10px;
-}
-
-h3 {
-       color: grey;
-    background-color: black;
-    margin-left: 10px;
-}
 
 #header {
     background-color: black;

@@ -33,7 +33,7 @@ function slideLeft() {
     reset();
     sliderImages[current - 1].style.display = "block";
     sliderImages[current - 1].classList.add('fade-in');
-    setTimeout(() => sliderImages[current - 1].classList.remove('fade-in'),500);
+    setTimeout(() => sliderImages[current].classList.remove('fade-in'),500);
     current--;
 }
 
@@ -41,7 +41,7 @@ function slideRight() {
     reset();
     sliderImages[current + 1].style.display = "block";
     sliderImages[current + 1].classList.add('fade-in');
-    setTimeout(() => sliderImages[current + 1].classList.remove('fade-in'),500);
+    setTimeout(() => sliderImages[current].classList.remove('fade-in'),500);
     current++;
 }
 

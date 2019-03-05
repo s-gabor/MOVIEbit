@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Document</title>
+    <title>MOVIEbit</title>
 </head>
 <body>
     <nav class="navigation-bar">
@@ -48,94 +48,136 @@
             </div>
         </div>
     </section>
-
-    <section class="search-container">
-        <h2>MOVIES SEARCH</h2>
-        <div class="row" style="text-align:center">
-            <input type="text" id="title" class="search-input" placeholder="Search movie...">
-        </div>
-        <div class="row myBtnContainer">
-            <h3><i>Filters:</i></h3>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="yearBox"> Year:
-                    <input type="text" id="year" class="search-creteria" placeholder="eg. 2008">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label for="">
-                    <input type="checkbox" id="runtimeBox"> Runtime:
-                    <input type="text" id="runtime" class="search-creteria" placeholder="50 min">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="genreBox"> Genre:
-                    <input type="text" id="genre" class="search-creteria" placeholder="Animation, Action,">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="languageBox"> Language:
-                    <input type="text" id="language" class="search-creteria" placeholder="English">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label class="form-check-label">
-                    <input type="checkbox" id="countryBox"> Country:
-                    <input type="text" id="country" class="search-creteria" placeholder="USA">
-                </label>
-            </div>
-        </div>
-        <div class="row myBtnContainer">
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="posterBox"> Poster:
-                    <input type="text" id="poster" class="search-creteria" placeholder="eg. 8.4">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="imdbRatingBox"> imdbRating:
-                    <input type="text" id="imdbRating" class="search-creteria" placeholder="eg. 8.4">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="imdbVotesBox"> imdbVotes:
-                    <input type="text" id="imdbVotes" class="search-creteria"
-                        placeholder="eg. 39,742">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="imdbIDBox"> imdbID:
-                    <input type="text" id="imdbID" class="search-creteria"
-                        placeholder="eg. tt2166834">
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    <input type="checkbox" id="typeBox"> Type:
-                    <input type="text" id="type" class="search-creteria"
-                        placeholder="eg. movie">
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <button class="btn btn-primary" id="searchBtn" style="border-radius:5px;"> Search</button>
-            </div>
-        </div>
-        
-        </div>
-        <h3><i>Results:</i></h3>
-        <div class="row" id="results"></div>
+    <section class="add-movie-section clearfix">
+        <div class="section-container">
+            <a href="#" class="add-btn">Add movie
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" class="svg-plus">
+                    <title>Add button</title>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1-2" data-name="Layer 1">
+                            <rect class="cls-1" x="1" y="1" width="33" height="33" rx="16.5"/>
+                            <polygon class="cls-2" points="24.5 16.5 18 16.5 18 10 16 10 16 16.5 9.5 16.5 9.5 18.5 16 18.5 16 25 18 25 18 18.5 24.5 18.5 24.5 16.5"/>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>        
     </section>
+    <section class="search-populate-movies">
+        <div class="section-container">
+            <div class="search-container">
+                <div class="search-btn-container">
+                    <input type="text" id="title" class="search-input" placeholder="Search...">                    
+                    <button class="search-btn" id="searchBtn">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-filters-container">
+                    <p class="filter-text">
+                        <span class="filter-desktop">Filters</span>
+                        <span class="filter-mobile">Show filters
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" class="svg-plus">
+                                <title>Add button</title>
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <g id="Layer_1-2" data-name="Layer 1">
+                                        <rect class="cls-1" x="1" y="1" width="33" height="33" rx="16.5"/>
+                                        <polygon class="cls-2" points="24.5 16.5 18 16.5 18 10 16 10 16 16.5 9.5 16.5 9.5 18.5 16 18.5 16 25 18 25 18 18.5 24.5 18.5 24.5 16.5"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                    </p>
+                    <form>
+                        <ul>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="yearBox" class="search-checkbox"/>
+                                <label for="yearBox" class="form-check-label">Year</label>
+                                <input type="text" id="year" class="search-criteria" placeholder="..."/>
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="runtimeBox" class="search-checkbox"/>
+                                <label for="runtimeBox" class="form-check-label">Runtime</label>
+                                <input type="text" id="runtime" class="search-criteria" placeholder="..."/>
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="genreBox" class="search-checkbox"/>
+                                <label for="genreBox" class="form-check-label">Genre</label>
+                                <input type="text" id="genre" class="search-criteria" placeholder="...">
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="languageBox" class="search-checkbox"/>
+                                <label for="languageBox" class="form-check-label">Language</label>
+                                <input type="text" id="language" class="search-criteria" placeholder="...">
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="countryBox" class="search-checkbox"/>
+                                <label for="countryBox" class="form-check-label">Country</label>
+                                <input type="text" id="country" class="search-criteria" placeholder="...">
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="imdbRatingBox" class="search-checkbox"/>
+                                <label for="imdbRatingBox" class="form-check-label">imdbRating</label>
+                                <input type="text" id="imdbRating" class="search-criteria" placeholder="...">
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="imdbVotesBox" class="search-checkbox"/>
+                                <label for="imdbVotesBox" class="form-check-label">imdbVotes</label>
+                                <input type="text" id="imdbVotes" class="search-criteria" placeholder="...">
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="imdbIDBox" class="search-checkbox"/>
+                                <label for="imdbIDBox" class="form-check-label">imdbID</label>
+                                <input type="text" id="imdbID" class="search-criteria" placeholder="...">
+                            </li>
+                            <li class="filter-item clearfix">
+                                <input type="checkbox" id="typeBox" class="search-checkbox"/>
+                                <label for="typeBox" class="form-check-label">Type</label>
+                                <input type="text" id="type" class="search-criteria" placeholder="...">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+            <div class="movie-populate-container">
+                <div class="movie-header clearfix">
+                    <p class="movie-header-title">Movie<span>bit</span></p>
+                    <p class="site-motto">Get your movies bit by bit</p>
+                </div>
+                <a href="#" class="movie-item">
+                    <img src="../img/nice-guys.jpg" alt=""/>
+                    <p class="movie-title">The good guys</p>
+                </a>
+                <a href="#" class="movie-item">
+                    <img src="../img/nice-guys.jpg" alt=""/>
+                    <p class="movie-title">The good guys</p>
+                </a>
+                <a href="#" class="movie-item">
+                    <img src="../img/nice-guys.jpg" alt=""/>
+                    <p class="movie-title">The good guys</p>
+                </a>
+                <a href="#" class="movie-item">
+                    <img src="../img/nice-guys.jpg" alt=""/>
+                    <p class="movie-title">The good guys</p>
+                </a>
+                <a href="#" class="movie-item">
+                    <img src="../img/nice-guys.jpg" alt=""/>
+                    <p class="movie-title">The good guys</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="section-container">
+            <div class="footer-title">
+                <h1 class="logo">MOVIE<span>bit</span></h1>
+            </div>            
+            <div class="footer-social"></div>
+            <div class="footer-copyright"></div>
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../models/MovieList.js"></script>

@@ -58,6 +58,7 @@ a:hover,
 a:active,
 a:visited {
     outline: none;
+    text-decoration: none;
 }
 
 blockquote:before, blockquote:after,
