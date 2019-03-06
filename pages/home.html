@@ -15,8 +15,10 @@
             <h1 class="logo">MOVIE<span>bit</span></h1>
             <ul class="navigation">
                 <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link" data-id="login">Login</a></li>
-                <li><a href="#" class="nav-link" data-id="register">Register</a></li>
+                <li><a id="btnLog" href="#" class="nav-link">Login</a></li>
+                <li><a id="btnReg" href="#" class="nav-link">Register</a></li>
+                <li><a id="userDisplay" href="#" class="nav-link"></a></li>
+                <li><a id="btnLogOut" href="#" class="nav-link"></a>Logout</li>
             </ul>
             <div class="burger-menu">
                 <span class="burger-line"></span>
@@ -181,6 +183,7 @@
     <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../models/MovieList.js"></script>
+    <script src="../views/authView.js"></script>
     <script src="../views/home.js"></script>
     <script src="../views/movieDetails.js"></script>
 </body>
