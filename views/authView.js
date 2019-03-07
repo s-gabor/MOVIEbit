@@ -17,12 +17,12 @@ function createLoginForm(formType) {
 	form.id = "form";
 	form.innerHTML = 
 	` 
-		<p>${formType}</p>
+		<h3>${formType}</h3>
 		<label for = "username">Username</label>
 		<input type="text" id="username" name="username" required minlength="4" maxlength="12" size="10"></br></br>
 		<label for = "pasword">Password</label>
 		<input type="password" id="password" name="password" required minlength="4" maxlength="12" size="10">
-		</br></br>
+		
 		<input type="button" id="hitBtn" value="${formType}">
 	`;
 
@@ -36,7 +36,7 @@ function createLoginForm(formType) {
 			var user = new User(pa_UserName,pa_Password);
 			if (formType === "Login") {
 				const loginApi = `${apiRoot}/auth/login`;	
-				user.authent(loginApi).then(
+				user.authent(loginApi,).then(
 					function(response){ 								//SUCCESS callback
 							console.log("Success:",response);
 							afterAuthSuccess(response,user.username);
@@ -71,7 +71,8 @@ function createLoginForm(formType) {
 				document.getElementById("userDisplay").innerHTML = username;
 				document.getElementById("userDisplay").classList.remove("inact_butt");
 				window.localStorage.setItem("authToken", JSON.stringify(apiResponse.accessToken));
-
+                var formElement = document.getElementById("form");
+                formElement.parentNode.removeChild(formElement);
 			}
 
 			
