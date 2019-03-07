@@ -13,23 +13,32 @@ document.getElementById("btnLog").addEventListener("click",function(){
 });
 
 function createLoginForm(formType) {
-	var form = document.createElement("form");
-	form.id = "form";
-	form.innerHTML = 
-	` 
-		<h3>${formType}</h3>
-		<label for = "username">Username</label>
-		<input type="text" id="username" name="username" required minlength="4" maxlength="12" size="10"></br></br>
-		<label for = "pasword">Password</label>
-		<input type="password" id="password" name="password" required minlength="4" maxlength="12" size="10">
-		
-		<input type="button" id="hitBtn" value="${formType}">
+	var modalContainer = document.createElement("div");
+    modalContainer.id = "formOpenModal";
+    modalContainer.classList.add("modalDialog");
+	modalContainer.innerHTML = 
+    ` 
+        <div>
+            <p id="formClose" title="Close" class="close">X</p>
+            <h3>${formType}</h3>
+            <label for = "username">Username</label>
+            <input type="text" id="username" name="username" required minlength="4" maxlength="12" size="10">
+            <label for = "pasword">Password</label>
+            <input type="password" id="password" name="password" required minlength="4" maxlength="12" size="10">
+            
+            <input type="button" id="hitBtn" value="${formType}">
+        </div>    
 	`;
 
-	document.body.appendChild(form);
-		document.getElementById("hitBtn").addEventListener("click", function(){
+    document.body.appendChild(modalContainer);
+	document.getElementById("hitBtn").addEventListener("click", function(){
 			apiMeth()
-		});
+    });
+    document.getElementById("formClose").addEventListener("click", function(){
+        var formElement = document.getElementById("formOpenModal");
+        formElement.parentNode.removeChild(formElement);
+});
+
 		function apiMeth(){
 			var pa_UserName = document.getElementById("username").value;
 			var pa_Password = document.getElementById("password").value;
@@ -54,8 +63,8 @@ function createLoginForm(formType) {
 				const registerApi = `${apiRoot}/auth/register`;	
 				user.authent(registerApi).then(
 					function(response){ 								//SUCCESS callback
-							// afterAuthSuccess(response);
-							console.log("Success:",response);
+                            console.log("Success:",response);
+                            afterAuthSuccess(response,user.username);
 				},
 					function(error) {										//ERROR callback
 							// afterAuthFail(error);
@@ -71,7 +80,7 @@ function createLoginForm(formType) {
 				document.getElementById("userDisplay").innerHTML = username;
 				document.getElementById("userDisplay").classList.remove("inact_butt");
 				window.localStorage.setItem("authToken", JSON.stringify(apiResponse.accessToken));
-                var formElement = document.getElementById("form");
+                var formElement = document.getElementById("formOpenModal");
                 formElement.parentNode.removeChild(formElement);
 			}
 
