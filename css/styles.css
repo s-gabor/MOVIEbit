@@ -637,6 +637,20 @@ footer {
     text-align: center;
 }
 
+.pagination {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+  
+.pagination a,
+.pagination span {
+    text-align: center;
+    font-size: 16px;
+    color: var(--main-color);
+    padding: 8px 16px;
+    text-decoration: none;
+}
 
 @media all and (min-width: 768px) {
 

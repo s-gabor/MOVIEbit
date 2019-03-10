@@ -74,28 +74,22 @@ function onHtmlLoaded() {
 }
 function displayMovies(movies) {
   const container = document.getElementById('movieList');
-  for(let i = 0; i < movies.length; i++) {
-    let id = movies[i]._id;
-    let title = movies[i].Title;
-    let year = movies[i].Year;
-    let poster = movies[i].Poster;
-    let genre = movies[i].Genre;
-    let type = movies[i].Type;
-    let imdbRating = movies[i].imdbRating;
-    let imdbID = movies[i].imdbID;
-    const html = document.createElement('article');
-    html.setAttribute("data-id", id);
+
+  $.each(movies.results, function(i, val) {
+    
+    const html = document.createElement('a');
+    html.setAttribute("class", "movie-item");
+    html.setAttribute("data-id", val._id);
     html.innerHTML = `
-      <img src=${poster}/>
-      <h3>${title}</h3>
-      <h5>Genre: ${genre}</h5>
-      <p>Type: ${type} from year ${year}</p>
-      <p>Imdb Rating: ${imdbRating}</p>
-      <button class='delete'>Delete Movie</button>
-      <button class='edit'>Edit Movie</button>
-    `
+          <img src=${val.Poster}/>
+          <p class="movie-title">${val.Title}</p>
+    `;
   container.appendChild(html);
-  }
+
+  });
+
+  showPagination(movies.pagination);
+  
 }
 
 
@@ -105,9 +99,9 @@ function displayMovies(movies) {
     var searchBtn = $('#searchBtn');
   
     searchBtn.on('click', function () {
-      var searchParams = gatherData();
+      var searchParams = gatherData();    
       ajaxCall(searchParams);
-    })
+    });
   
     function gatherData() {
       var searchParams = {};
@@ -191,23 +185,5 @@ function displayMovies(movies) {
       return searchParams;
     }
   
-    function showResults(data) {
-      var results = $('#results');
-      var template = '';
-      results.empty();
-      for (let i = 0; i < data.length; i++) {
-        const el = data[i];
-        template += '<div class="column">';
-        template += '<div class="content">';
-        template +='<picture><img src="'+ el.Poster +'" style="width:auto; alt='+ el.Title +'"></picture>';
-        template +='<h4 style="width:250px;">'+ el.Title + '</h4>';
-        template += '<p>' + el.Genre +'</p>';
-        template += '<p>' + el.Language +'</p>';
-        template += '<p>' + el.Country +'</p>';
-       // template += '<p>' + el.Poster +'</p>';
-        template += '</div>';
-        template += '</div>';
-      }
-      results.append(template);
-    }
+    
   })();
