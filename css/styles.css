@@ -52,7 +52,7 @@ a:hover {
 @media all and (min-width: 768px) {
     .section-container {
         padding: 0 60px;
-    }    
+    }
 }
 
 /* ----------------NAVIGATION BAR------------------ */
@@ -67,7 +67,7 @@ a:hover {
 }
 
 .logo {
-    float: left; 
+    float: left;
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -77,14 +77,14 @@ a:hover {
     text-transform: lowercase;
 }
 
-.navigation {    
+.navigation {
     position: absolute;
     top: 48px;
     right: 0;
     z-index: 15;
     background: var(--secondary-color);
     border-bottom-left-radius: 5px;
-    font-weight: 400; 
+    font-weight: 400;
     clip-path: circle(0px at top right);
     transition: clip-path ease-in-out 700ms;
 }
@@ -109,6 +109,10 @@ a:hover {
     transition: all ease-in-out 500ms;
 }
 
+#btnLogOut {
+    display: none;
+}
+
 .nav-link:focus {
     outline: none;
 }
@@ -118,7 +122,7 @@ a:hover {
     height: 30px;
     position: absolute;
     top: 15px;
-    right: 15px;   
+    right: 15px;
     cursor: pointer;
 }
 
@@ -186,7 +190,7 @@ a:hover {
     .navigation li:hover {
         background: transparent;
     }
-    
+
     .navigation li:last-child {
         padding: 0 0 0 15px;
     }
@@ -280,14 +284,14 @@ a:hover {
     #chevron_right {
         width: 30px;
     }
-    
+
     #chevron_left {
         left: 60px;
     }
-    
+
     #chevron_right {
         right: 60px;
-    }    
+    }
 }
 
 /* ---------------- ADD MOVIE ------------------ */
@@ -317,7 +321,7 @@ a:hover {
 
 .cls-1,
 .cls-2 {
-    transition: all ease-in-out 400ms;    
+    transition: all ease-in-out 400ms;
 }
 
 .add-btn:hover {
@@ -374,9 +378,9 @@ a:hover {
     width: 100%;
     background: rgba(255, 255, 255, .2);
     padding: 5px 10px;
-    border: 2px solid var(--main-color); 
-    border-radius: 30px;  
-    color: var(--main-color);    
+    border: 2px solid var(--main-color);
+    border-radius: 30px;
+    color: var(--main-color);
 }
 
 .search-creteria {
@@ -394,14 +398,14 @@ a:hover {
 
 ::placeholder {
     color: var(--main-color);
-    opacity: 1; 
+    opacity: 1;
 }
 
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
     color: var(--main-color);
 }
 
-::-ms-input-placeholder { 
+::-ms-input-placeholder {
     color: var(--main-color);
 }
 
@@ -517,7 +521,7 @@ a:hover {
 
 .movie-populate-container {
     width: 100%;
-    font-size: 0;  
+    font-size: 0;
 }
 
 .movie-header-title {
@@ -560,10 +564,10 @@ a:hover {
     text-align: left;
 }
 
-@media all and (min-width: 768px) {    
+@media all and (min-width: 768px) {
     .movie-populate-container {
-        width: 83.33%;  
-        padding-left: 25px; 
+        width: 83.33%;
+        padding-left: 25px;
     }
 
     .movie-header-title,
@@ -635,14 +639,14 @@ footer {
 
 
 @media all and (min-width: 768px) {
- 
+
 }
 
 
 
 
 /* de pe local css*/
-/* 
+/*
 #picture {
     float: left;
     width: 60%;
