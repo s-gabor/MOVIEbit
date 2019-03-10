@@ -69,6 +69,7 @@ a:hover {
 .logo {
     float: left; 
     text-transform: uppercase;
+    font-weight: 700;
 }
 
 .logo span {
@@ -594,9 +595,54 @@ a:hover {
 
 /* ---------------- FOOTER ------------------ */
 
+footer {
+    background: var(--default-color);
+    font-size: 0;
+}
+
+.footer-title,
+.footer-social,
+.footer-copyright {
+    display: inline-block;
+    font-size: 24px;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.footer-title .logo,
+.footer-title p {
+    text-align: center;
+    float: none;
+    padding: 5px 0;
+}
+
+.footer-social-wrapper {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+}
+
+.footer-social svg {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-copyright p {
+    text-align: center;
+}
+
+
+@media all and (min-width: 768px) {
+ 
+}
+
+
+
 
 /* de pe local css*/
-
+/* 
 #picture {
     float: left;
     width: 60%;
@@ -657,4 +703,4 @@ a:hover {
 #ratings {
     color:orange;
     margin-left: 10px;
-}
+} */
