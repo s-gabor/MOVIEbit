@@ -102,6 +102,13 @@ function displayMovies(movies) {
       var searchParams = gatherData();    
       ajaxCall(searchParams);
     });
+
+    // Dynamic search on keyup
+    var searchBtn = $('#filtersList');
+    searchBtn.on('keyup', function () {
+      var searchParams = gatherData();    
+      ajaxCall(searchParams);
+    });
   
     function gatherData() {
       var searchParams = {};
