@@ -1,16 +1,4 @@
-:root {
-    --default-color: #0B0A0A;
-    --main-color: #E3A410;
-    --hover-color: #F9C87A;
-    --secondary-color: #1E1E1E;
-    --third-color: #808080;
-    --forth-color: #424242;
-    --fifth-color: #ffffff;
-
-    --main-font: 'Open Sans', sans-serif;
-}
-
-.inact_butt {visibility: hidden}
+/* ----------------GENERAL STYLES------------------ */
 
 .modalDialog { 
 	position: fixed;
@@ -19,7 +7,6 @@
 	bottom: 0;
 	left: 0;
     background: rgba(0,0,0,0.8);
-    border: 1px solid red;
     z-index: 99999;
     background: rgba(0,0,0,0.6);
 	-webkit-transition: opacity 400ms ease-in;
@@ -28,12 +15,23 @@
 	pointer-events: auto;
 }
 
+
+/* mobile first styles */
+
+.hideNavButtons {
+    display: none;
+}
+
+.displayNavButtons {
+    display: list-item; 
+}
+
 .modalDialog > div {
     position: absolute;
     top: 20%;
     left: 50%;
     transform: translate(-50%,-20%); 
-    width: 27%;
+    width: 260px;
     border-radius: 10px;
     padding: 46px 26px;
     font-family: var(--main-font);
@@ -45,6 +43,11 @@
 .modalDialog h3 {
       font-size: 34px;
       margin-bottom: 30px;
+}
+
+#errorMessage {
+    color: red;
+    margin-bottom: 30px;
 }
 
 .modalDialog label, .modalDialog input{
@@ -64,6 +67,10 @@
     margin-top: 45px;
     color: var(--main-color);
     background-color: var(--default-color);
+}
+
+.modalDialog input[type="button"]:hover {
+    background-color: var(--forth-color);
 
 }
 
@@ -86,3 +93,16 @@
 }
 
 .close:hover { background: var(--hover-color); }
+
+/* desktop styles */
+@media all and (min-width: 768px) {
+    .modalDialog > div {
+        width: 300px;
+    }
+    
+    .displayNavButtons {
+        display: inline-block; 
+    }
+    
+ 
+} /* end of media query*/
