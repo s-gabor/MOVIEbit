@@ -11,6 +11,14 @@ class User {
                 username : this.username,
                 password : this.password    
             }
+
+        })
+    }
+    logout(apiUrl, lsToken) {
+        return $.ajax({
+            url: apiUrl,
+            method: "GET",
+            headers: { "x-auth-token" : lsToken }
         })
     }
 }

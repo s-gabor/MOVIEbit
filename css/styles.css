@@ -56,6 +56,7 @@ a:hover {
 }
 
 /* ----------------NAVIGATION BAR------------------ */
+/* mobile first styles */
 
 .navigation-bar {
     background: var(--default-color);
@@ -109,10 +110,6 @@ a:hover {
     transition: all ease-in-out 500ms;
 }
 
-#btnLogOut {
-    display: none;
-}
-
 .nav-link:focus {
     outline: none;
 }
@@ -163,6 +160,7 @@ a:hover {
     transform: translateY(-5px) rotate(-90deg);
 }
 
+/* desktop styles */
 @media all and (min-width: 768px) {
     .burger-menu {
         display: none;
@@ -182,7 +180,6 @@ a:hover {
     }
 
     .navigation li {
-        display: inline-block;
         border: none;
         padding: 0 15px;
     }
@@ -221,6 +218,7 @@ a:hover {
     .nav-link:hover::before {
         transform: scale(1,1);
     }
+    
 }
 
 /* ----------------CAROUSEL SLIDER------------------ */
