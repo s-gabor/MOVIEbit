@@ -656,7 +656,151 @@ footer {
 
 }
 
+/* ---------------- MOVIE Details ------------------ */
 
+.movie-details-wrapper {
+    font-size: 0;
+}
+
+.movie-poster,
+.movie-details {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.movie-poster {
+    overflow: hidden;    
+}
+
+.movie-details {
+    padding: 15px 0;
+    background-image: linear-gradient(var(--default-color) 5%, var(--secondary-color) 95%);
+}
+
+.movie-poster img {
+    width: 100%;
+}
+
+.section-container-details {
+    display: block;
+    max-width: 1800px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.title-btns {
+    font-size: 0;
+}
+
+.title-btns .movie-title {
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 80%;
+}
+
+.title-btns .btns {
+    display: inline-block;
+    width: 20%;
+    font-size: 16px;
+}
+
+.misc-movie-data {
+    color: var(--third-color);
+    font-weight: 700;
+}
+
+.ygt-categories {
+    font-size: 0;
+    padding: 5px 0 45px;
+}
+
+.ygt-categories li {
+    font-size: 24px;
+    display: inline-block;
+    width: 20%;
+}
+
+.movie-time {
+    float: right;
+}
+/* 13 martie 2019 */
+
+.movie-info p:first-child {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.movie-info p:nth-child(2) {
+    font-size: 12px;
+    padding-bottom: 100px;
+}
+
+.movie-type-id {
+    display: inline-block;
+    width: 30%;
+    float: left;
+    padding-bottom: 15px;
+}
+
+.movie-type-id p:first-child {
+    padding-bottom: 20px;
+}
+
+
+.movie-language-country {
+    display: inline-block;
+    width: 40%;
+    float: left;
+    text-align: right;
+    padding-right: 15px;
+}
+
+
+.movie-language-country p:first-child {
+    padding-bottom: 20px;
+}
+
+.rating-votes {
+    display: inline-block;
+    width: 30%;
+}
+
+.rating-votes p:first-child {
+    margin-bottom: 15px;
+    height: 20px;
+}
+
+.rating-votes p:nth-child(2) {
+    height: 20px;
+}
+
+
+.votes-rating {
+    border: solid 1px;
+    border-color: var(--main-color);
+    font: var(--main-color);
+    border-radius: 7px;
+    padding-left: 5px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+
+@media all and (min-width: 768px) {
+    .movie-poster,
+    .movie-details {
+        width: 50%;
+    }
+
+    .section-container-details {
+        padding: 0 60px;
+    }
+
+}
 
 
 /* de pe local css*/

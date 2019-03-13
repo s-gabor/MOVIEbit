@@ -21,49 +21,64 @@
                 <span class="burger-line"></span>
             </div>
         </div>
-    </nav> 
-    <div id=picture>
-        <img src="C:\Users\vaio\Desktop\Scoala IT\Final Project\Test\nice_guys1.jpg" width="100%" ;></div>
-    <div id=details class=details>
-
-
-        <div id=movie_title>
-
-            <section id="title">Movie Title</section>
-            <section><button type="button" id="edit_btn">Edit</button></section>
-            <section><button type="button" id="delete_btn">Delete</button></section>
-
-
+    </nav>
+    <section class="movie-details-wrapper">
+        <div class="movie-poster">
+            <img src="../img/nice-guys.jpg" alt="" />
         </div>
-
-        <div id=movie_details>
-            <section id="Year" class="details_mov">2016</section>
-            <section id="Genre" class="details_mov">Comedy</section>
-            <section id="Duration" class="details_mov">120m</section>
+        <div class="movie-details">
+            <div class="section-container-details">
+                <div class="title-btns">
+                    <h1 class="movie-title">Nice guys</h1>
+                    <div class="btns">
+                        <button type="btn-DE" id="edit_btn">Edit</button>
+                        <button type="btn-DE" id="delete_btn">Delete</button>
+                    </div>
+                </div>
+                <div class="misc-movie-data">
+                    <ul class="ygt-categories">
+                        <li class="movie-year">2016</li>
+                        <li class="movie-genre">Comedy</li>
+                        <li class="movie-time clearfix">1h 20min</li>
+                    </ul>
+                    <div class="movie-info">
+                        <p>Description</p>
+                        <p class="movie-description">
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                        </p>
+                    </div>
+                    <div class="misc-container">
+                        <div class="movie-type-id">
+                            <p class="type-id" id="movie-type">Type</p>
+                            <p class="type-id" id="movie-imdbid">imdbID</p>
+                        </div>
+                        <div class="movie-language-country">
+                            <p class="language-country" id="movie-language">English</p>
+                            <p class="language-country" id="movie-country">USA</p>
+                        </div>
+                        <div class="rating-votes">
+                            <p class="votes-rating"><span id="imdb-rating">8/10</span> imdb</p>
+                            <p class="votes-rating"><span id="imdb-votes">1000</span> votes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
         </div>
-
-        <h3>Description</h3>
-        <p class="mov_description">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
-
-        <div id="ratings">
-            <section id="type">Type:</section>
-            <section id="Language">Language: </section>
-            <section id="Country">Country: </section>
-            <section id="imdbID"> imdbID: </section>
-            <section id="imdbRating">IMDB Rating: </section>
-            <section id="imdbVotes">IMDB votes: </section>
-        </div>
-
-
-
-    </div>
+    </section>
+    
 
     <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
