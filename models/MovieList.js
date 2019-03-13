@@ -10,18 +10,6 @@ Movies.prototype.getMovies = function() {
     .catch((err) => console.log(err))
 }
 
- // Movie model
- function Movie(options = {}) {
-   this._id = options._id;
-   this.Title = options.Title;
-   this.Year = options.Year;
-   this.Poster = options.Poster;
-   this.Genre = options.Genre;
-   this.Type = options.Type;
-   this.imdbRating = options.imdbRating;
-   this.imdbID = options.imdbID;
- }
-
  function getPage(data) {
    var obj = {take: 0, skip: 0, Title: null, Year: null, Genre: null, Type: null, imdbRating: null, imdbID: null};
    var objData;
