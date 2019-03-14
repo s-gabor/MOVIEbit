@@ -4,87 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/auth.css">
+    <title>MOVIEbit</title>
 </head>
 <body>
     <nav class="navigation-bar">
         <div class="section-container">
             <h1 class="logo">MOVIE<span>bit</span></h1>
             <ul class="navigation">
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link" data-id="login">Login</a></li>
-                <li><a href="#" class="nav-link" data-id="register">Register</a></li>
+                <li class="displayNavButtons"><a href="#" class="nav-link">Home</a></li>
+                <li id="btnLog" class="displayNavButtons"><a href="#" class="nav-link">Login</a></li>
+                <li id="btnReg" class="displayNavButtons"><a href="#" class="nav-link">Register</a></li>
+                <li id="userDisplay" class="hideNavButtons"><a id="userDisplayA" href="#" class="nav-link"></a></li>
+                <li id="btnLogOut" class="hideNavButtons"><a href="#" class="nav-link">Logout</a></li>
             </ul>
             <div class="burger-menu">
                 <span class="burger-line"></span>
             </div>
         </div>
     </nav>
-    <section class="movie-details-wrapper">
-        <div class="movie-poster">
-            <img src="../img/nice-guys.jpg" alt="" />
+
+    <section class="details-wrapper">
+        <div class="details-poster">
+            <img class="details-poster-img" src="../img/nice-guys.jpg" alt="" />
         </div>
-        <div class="movie-details">
-            <div class="section-container-details">
-                <div class="title-btns">
-                    <h1 class="movie-title">Nice guys</h1>
-                    <div class="btns">
-                        <button type="btn-DE" id="edit_btn">Edit</button>
-                        <button type="btn-DE" id="delete_btn">Delete</button>
+
+        <div class="details">
+            <div class="details-header">
+                <div class="details-title-and-btns">
+                    <h1 class="details-title">the nice guys</h1>
+                    <span class="push"></span>
+                    <div class="details-btns">
+                        <button type="" id="">
+                            <svg class="svg-icon" viewBox="0 0 20 20">
+                                <path fill="none" d="M19.404,6.65l-5.998-5.996c-0.292-0.292-0.765-0.292-1.056,0l-2.22,2.22l-8.311,8.313l-0.003,0.001v0.003l-0.161,0.161c-0.114,0.112-0.187,0.258-0.21,0.417l-1.059,7.051c-0.035,0.233,0.044,0.47,0.21,0.639c0.143,0.14,0.333,0.219,0.528,0.219c0.038,0,0.073-0.003,0.111-0.009l7.054-1.055c0.158-0.025,0.306-0.098,0.417-0.211l8.478-8.476l2.22-2.22C19.695,7.414,19.695,6.941,19.404,6.65z M8.341,16.656l-0.989-0.99l7.258-7.258l0.989,0.99L8.341,16.656z M2.332,15.919l0.411-2.748l4.143,4.143l-2.748,0.41L2.332,15.919z M13.554,7.351L6.296,14.61l-0.849-0.848l7.259-7.258l0.423,0.424L13.554,7.351zM10.658,4.457l0.992,0.99l-7.259,7.258L3.4,11.715L10.658,4.457z M16.656,8.342l-1.517-1.517V6.823h-0.003l-0.951-0.951l-2.471-2.471l1.164-1.164l4.942,4.94L16.656,8.342z"></path>
+                            </svg>
+                        </button>
+                        
+                        <button type="" id="">
+                            <svg class="svg-icon" viewBox="0 0 20 20">
+                                <path fill="none" d="M3.936,7.979c-1.116,0-2.021,0.905-2.021,2.021s0.905,2.021,2.021,2.021S5.957,11.116,5.957,10
+                                    S5.052,7.979,3.936,7.979z M3.936,11.011c-0.558,0-1.011-0.452-1.011-1.011s0.453-1.011,1.011-1.011S4.946,9.441,4.946,10
+                                    S4.494,11.011,3.936,11.011z M16.064,7.979c-1.116,0-2.021,0.905-2.021,2.021s0.905,2.021,2.021,2.021s2.021-0.905,2.021-2.021
+                                    S17.181,7.979,16.064,7.979z M16.064,11.011c-0.559,0-1.011-0.452-1.011-1.011s0.452-1.011,1.011-1.011S17.075,9.441,17.075,10
+                                    S16.623,11.011,16.064,11.011z M10,7.979c-1.116,0-2.021,0.905-2.021,2.021S8.884,12.021,10,12.021s2.021-0.905,2.021-2.021
+                                    S11.116,7.979,10,7.979z M10,11.011c-0.558,0-1.011-0.452-1.011-1.011S9.442,8.989,10,8.989S11.011,9.441,11.011,10
+                                    S10.558,11.011,10,11.011z"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <div class="misc-movie-data">
-                    <ul class="ygt-categories">
-                        <li class="movie-year">2016</li>
-                        <li class="movie-genre">Comedy</li>
-                        <li class="movie-time clearfix">1h 20min</li>
+
+                
+                <div class="details-year-genre-time">
+                    <ul class="details-year-genre-time-list">
+                        <li class="details-year">2016</li>
+                        <li class="details-genre">Comedy</li>
+                        <li class="push"></li>
+                        <li class="details-time">1h 20min</li>
                     </ul>
-                    <div class="movie-info">
-                        <p>Description</p>
-                        <p class="movie-description">
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                        </p>
-                    </div>
-                    <div class="misc-container">
-                        <div class="movie-type-id">
-                            <p class="type-id" id="movie-type">Type</p>
-                            <p class="type-id" id="movie-imdbid">imdbID</p>
-                        </div>
-                        <div class="movie-language-country">
-                            <p class="language-country" id="movie-language">English</p>
-                            <p class="language-country" id="movie-country">USA</p>
-                        </div>
-                        <div class="rating-votes">
-                            <p class="votes-rating"><span id="imdb-rating">8/10</span> imdb</p>
-                            <p class="votes-rating"><span id="imdb-votes">1000</span> votes</p>
-                        </div>
-                    </div>
+                </div>
+            </div>
+
+            <div class="details-description">
+                <h1 class="details-description-name">Description</h1>
+                <p class="details-description-content">
+                        Suspendise dictum, lectus eget ultrices lobortis, orci totrot sagittis lacus, sit amet luctus sem ricus non telus. Sed id interdum nisl. Phaselus suscipit nisi finibus arcu malesuada, in consecteur augue ultrices. Aliquam vitae magna ricus. Curabitur malesuada, ipsum sollicitudin ultrices viverra, dui eros tompor nibh, sagittis dictum elit dui a mi. Nullam quis ligua nunc.
+                </p>
+            </div>
+
+            <div class="details-stats">
+                <div class="details-type-and-id">
+                    <p class="" id="">Type</p>
+                    <p class="" id="">imdbID</p>
+                </div>
+
+                <div class="push"></div>
+
+                <div class="details-language-and-country">
+                    <p class="" id="">English</p>
+                    <p class="" id="">USA</p>
                 </div>
                 
-                
+                <div class="details-rating-and-votes">
+                    <p class="" id=""><span id="">8/10</span>imdb</p>
+                    <p class="" id=""><span id="">1000</span>votes</p>
+                </div>
             </div>
         </div>
     </section>
     
-
+    <footer>
+        <div class="section-container">
+            <div class="footer-title">
+                <p class="logo">Movie<span>bit</span></p>
+                <p>Get your movies bit by bit</p>
+            </div>
+            <div class="footer-social">
+                <div class="footer-social-wrapper">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter-square" class="svg-inline--fa fa-twitter-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+                    </svg>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-square" class="svg-inline--fa fa-facebook-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z"></path>
+                    </svg>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                    </svg>
+                    <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube-square" class="svg-inline--fa fa-youtube-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© Byte-Actors</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../models/MovieList.js"></script>
+    <script src="../views/authView.js"></script>
+    <script src="../views/home.js"></script>
     <script src="../views/movieDetails.js"></script>
-
 </body>
 
 </html>
