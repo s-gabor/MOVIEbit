@@ -23,8 +23,10 @@ function displayMovies(movies) {
     html.setAttribute("data-id", val._id);
     html.setAttribute("href", "./movieDetails.html");
     html.innerHTML = `
-          <img src=${val.Poster}/>
-          <p class="movie-title">${val.Title}</p>
+      <div class="poster-container">
+        <img src=${val.Poster}/>
+      </div>
+      <p class="movie-title">${val.Title}</p>
     `;
     html.addEventListener("click", () => updateLocalStorage(val._id));
   container.appendChild(html);

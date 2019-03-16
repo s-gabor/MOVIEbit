@@ -137,9 +137,10 @@ function ajaxCall(searchParams) {
       html.setAttribute("href", "./movieDetails.html");
       html.addEventListener("click", () => updateLocalStorage(val._id));
       html.innerHTML =
-        `
+        `<div class="poster-container">
           <img src=${val.Poster}/>
-          <p class="movie-title">${val.Title}</p>
+        </div>
+        <p class="movie-title">${val.Title}</p>
         `;
       movieList1.append(html);
     });

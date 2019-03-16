@@ -35,6 +35,12 @@ a:hover {
     color: var(--main-color);
 }
 
+a:active,
+a:focus {
+    color: var(--main-color);
+    outline: none;
+}
+
 .clearfix::after,
 .clearfix::before {
     content: "";
@@ -549,7 +555,14 @@ a:hover {
     display: inline-block;
     width: 100%;
     padding: 15px 0;
+    vertical-align: top;
     transition: all ease-in-out 300ms;
+}
+
+.poster-container {
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .movie-item:hover {
@@ -557,16 +570,15 @@ a:hover {
 }
 
 .movie-item img {
-    width: 100%;
-    border-radius: 10px;
+    height: 100%;
 }
 
 .movie-populate-container .movie-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     width: 100%;
     text-transform: uppercase;
-    line-height: 1.1;
+    line-height: 1.2;
     padding: 10px 0;
     text-align: left;
 }
