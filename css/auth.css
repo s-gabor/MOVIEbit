@@ -101,7 +101,7 @@
     -moz-transition: all ease-in-out 500ms;
 }
 
-.svg-inline--fa {
+.closeBut .svg-inline--fa {
     width: 15px;
     height: 15px;
 }
