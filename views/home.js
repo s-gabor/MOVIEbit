@@ -65,6 +65,10 @@ startSlide();
 // Display Movies function
 document.addEventListener('DOMContentLoaded', onHtmlLoaded);
 
+const updateLocalStorage = (movieId) => {
+  window.localStorage.setItem("selectedMovie", movieId);
+}
+
 function onHtmlLoaded() {
   let moviesModel = new Movies();
   moviesModel.getMovies()
@@ -80,10 +84,12 @@ function displayMovies(movies) {
     const html = document.createElement('a');
     html.setAttribute("class", "movie-item");
     html.setAttribute("data-id", val._id);
+    html.setAttribute("href", "./movieDetails.html");
     html.innerHTML = `
           <img src=${val.Poster}/>
           <p class="movie-title">${val.Title}</p>
     `;
+    html.addEventListener("click", () => updateLocalStorage(val._id));
   container.appendChild(html);
 
   });

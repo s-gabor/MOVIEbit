@@ -15,7 +15,7 @@
         <div class="section-container">
             <h1 class="logo">MOVIE<span>bit</span></h1>
             <ul class="navigation">
-                <li class="displayNavButtons"><a href="#" class="nav-link">Home</a></li>
+                <li class="displayNavButtons"><a href="./home.html" class="nav-link">Home</a></li>
                 <li id="btnLog" class="displayNavButtons"><a href="#" class="nav-link">Login</a></li>
                 <li id="btnReg" class="displayNavButtons"><a href="#" class="nav-link">Register</a></li>
                 <li id="userDisplay" class="hideNavButtons"><a id="userDisplayA" href="#" class="nav-link"></a></li>
@@ -29,13 +29,13 @@
 
     <section class="details-wrapper">
         <div class="details-poster">
-            <img class="details-poster-img" src="../img/nice-guys.jpg" alt="" />
+            <img class="details-poster-img" id="selectedMoviePoster" src="../img/nice-guys.jpg" alt="" />
         </div>
 
         <div class="details">
             <div class="details-header">
                 <div class="details-title-and-btns">
-                    <h1 class="details-title">the nice guys</h1>
+                    <h1 class="details-title" id="selectedMovieTitle">the nice guys</h1>
                     <span class="push"></span>
                     <div class="details-btns">
                         <button type="" id="edit_btn">
@@ -61,37 +61,37 @@
                 
                 <div class="details-year-genre-time">
                     <ul class="details-year-genre-time-list">
-                        <li class="details-year">2016</li>
-                        <li class="details-genre">Comedy</li>
+                        <li class="details-year" id="selectedMovieYear">2016</li>
+                        <li class="details-genre" id="selectedMovieGenre">Comedy</li>
                         <li class="push"></li>
-                        <li class="details-time">1h 20min</li>
+                        <li class="details-time" id="selectedMovieRuntime">1h 20min</li>
                     </ul>
                 </div>
             </div>
 
             <div class="details-description">
                 <h1 class="details-description-name">Description</h1>
-                <p class="details-description-content">
+                <p class="details-description-content" id="selectedMovieDescription">
                         Suspendise dictum, lectus eget ultrices lobortis, orci totrot sagittis lacus, sit amet luctus sem ricus non telus. Sed id interdum nisl. Phaselus suscipit nisi finibus arcu malesuada, in consecteur augue ultrices. Aliquam vitae magna ricus. Curabitur malesuada, ipsum sollicitudin ultrices viverra, dui eros tompor nibh, sagittis dictum elit dui a mi. Nullam quis ligua nunc.
                 </p>
             </div>
 
             <div class="details-stats">
                 <div class="details-type-and-id">
-                    <p class="" id="">Type</p>
-                    <p class="" id="">imdbID</p>
+                    <p class="" id="selectedMovieType">Type</p>
+                    <p class="" id="selectedMovieImdbID">imdbID</p>
                 </div>
 
                 <div class="push"></div>
 
                 <div class="details-language-and-country">
-                    <p class="" id="">English</p>
-                    <p class="" id="">USA</p>
+                    <p class="" id="selectedMovieLanguage">English</p>
+                    <p class="" id="selectedMovieCountry">USA</p>
                 </div>
                 
                 <div class="details-rating-and-votes">
-                    <p class="" id=""><span id="">8/10</span>imdb</p>
-                    <p class="" id=""><span id="">1000</span>votes</p>
+                    <p class="" id=""><span id="selectedMovieRating">8/10</span>imdb</p>
+                    <p class="" id=""><span id="selectedMovieVotes">1000</span>votes</p>
                 </div>
             </div>
         </div>

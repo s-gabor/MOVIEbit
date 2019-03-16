@@ -93,7 +93,6 @@ function getFilters(data) {
 
 //  Search and Display Movies functions
 function ajaxCall(searchParams) {
-  console.log(searchParams);
   var query = "?";
 
   $.each(searchParams, function(i, val) {
@@ -116,7 +115,6 @@ function ajaxCall(searchParams) {
       $("body").css('cursor', 'wait');
     },
     success: function (data) {
-      //console.log(data);
       document.body.style.cursor = 'context-menu';
       showResults(data.results);
       showPagination(data.pagination);
@@ -136,13 +134,15 @@ function ajaxCall(searchParams) {
       const html = document.createElement('a');
       html.setAttribute("class", "movie-item");
       html.setAttribute("data-id", val._id);
-      html.innerHTML = `
-            <img src=${val.Poster}/>
-            <p class="movie-title">${val.Title}</p>
-      `;
+      html.setAttribute("href", "./movieDetails.html");
+      html.addEventListener("click", () => updateLocalStorage(val._id));
+      html.innerHTML =
+        `
+          <img src=${val.Poster}/>
+          <p class="movie-title">${val.Title}</p>
+        `;
       movieList1.append(html);
     });
-
 
 
     var results = $('#results');
