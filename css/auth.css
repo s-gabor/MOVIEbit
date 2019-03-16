@@ -59,36 +59,60 @@
 
 .modalDialog input {
     border-radius: 4px;
-    border: 1px solid black;
+    border: 1px solid  var(--default-color);
     background-color: var( --hover-color);
+    padding: 5px 10px;
 }
 
 .modalDialog input[type="button"] {
     margin-top: 45px;
     color: var(--main-color);
     background-color: var(--default-color);
+    transition: all ease-in-out 500ms;    
+    -webkit-transition: all ease-in-out 500ms;
+    -moz-transition: all ease-in-out 500ms;
+    border: 2px solid  var(--default-color);
+    padding: 10px;
+
 }
 
 .modalDialog input[type="button"]:hover {
-    background-color: var(--forth-color);
-
+    background-color: var(--main-color);
+    color:  var(--default-color);
 }
 
 .closeBut {
+    content: 'x';
+    height: 25px;
+    width: 25px;
 	background: var(--default-color);
 	color: var(--main-color);
 	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
+    position: absolute;
+    top: 25px;
+	right: 25px;
+	text-align: center;		
 	font-weight: bold;
-	border-radius: 12px;
-	box-shadow: 1px 1px 3px #000;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--default-color); 
+    transition: all ease-in-out 500ms;    
+    -webkit-transition: all ease-in-out 500ms;
+    -moz-transition: all ease-in-out 500ms;
 }
 
-.closeBut:hover { background: var(--forth-color); }
+.svg-inline--fa {
+    width: 15px;
+    height: 15px;
+}
+
+.closeBut:hover { 
+    background: var(--main-color); 
+}
+
+.closeBut:hover .svg-inline--fa path {
+    fill: var(--default-color);
+}
 
 /* desktop styles */
 @media all and (min-width: 768px) {
