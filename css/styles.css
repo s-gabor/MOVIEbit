@@ -570,7 +570,8 @@ a:focus {
 }
 
 .movie-item img {
-    height: 100%;
+    height: auto;
+    width: 100%;
 }
 
 .movie-populate-container .movie-title {
@@ -581,6 +582,24 @@ a:focus {
     line-height: 1.2;
     padding: 10px 0;
     text-align: left;
+}
+
+#currentPage,
+#prevPage,
+#nextPage {
+    font-weight: 700;
+    padding: 10px 16px;
+}
+
+#prevPage,
+#nextPage {
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+#prevPage:hover,
+#nextPage:hover {
+    border: 2px solid var(--main-color);    
 }
 
 @media all and (min-width: 768px) {
@@ -613,6 +632,11 @@ a:focus {
 
     .movie-item:hover {
         transform: scale(1.05);
+    }
+
+    .movie-item img {
+        height: 100%;
+        width: auto;
     }
 }
 
@@ -673,9 +697,9 @@ footer {
 }
 
 .pagination {
-    display: block;
-    margin: auto;
-    width: 50%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
 }
   
 .pagination a,

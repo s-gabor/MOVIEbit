@@ -76,14 +76,14 @@ Movies.prototype.getMovies = function() {
   pagination.children().remove();
 
   if (data.links.prev) {
-    setPage(pagination, "&laquo;", "prevPage", getFilters(data.links.prev));
+    setPage(pagination, "&lt;", "prevPage", getFilters(data.links.prev));
   }
 
   setPage(pagination, data.currentPage, "currentPage", getFilters(data.links.self), false);
 
 
   if (data.links.next) {
-    setPage(pagination, "&raquo;", "nextPage", getFilters(data.links.next)); 
+    setPage(pagination, "&gt;", "nextPage", getFilters(data.links.next)); 
   }
 }
 
