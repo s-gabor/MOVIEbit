@@ -120,6 +120,7 @@ function createLoginForm(formType) {
 					document.getElementById("userDisplay").classList.add("displayNavButtons");
 	
 					window.localStorage.setItem("authToken", apiResponse.accessToken);
+
 					var formElement = document.getElementById("formOpenModal");
 					formElement.parentNode.removeChild(formElement);
 				}
