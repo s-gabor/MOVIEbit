@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', onHtmlLoaded);
+function renderNavBar(loggedUsername){
+	const	logoutButton = document.getElementById("btnLog");
+	logoutButton.classList.remove("displayNavButtons");
+	logoutButton.classList.add("hideNavButtons");
+
+	document.getElementById("btnReg").classList.remove("displayNavButtons");
+	document.getElementById("btnReg").classList.add("hideNavButtons");
+
+	document.getElementById("btnLogOut").classList.remove("hideNavButtons");
+	document.getElementById("btnLogOut").classList.add("displayNavButtons");
+
+	document.getElementById("userDisplayA").innerHTML = loggedUsername;
+	document.getElementById("userDisplay").classList.remove("hideNavButtons");
+	document.getElementById("userDisplay").classList.add("displayNavButtons");
+}
 
 function onHtmlLoaded() {
 
@@ -107,29 +122,16 @@ function createLoginForm(formType) {
 					);
 				}
 				function afterAuthSuccess(apiResponse,username) {
-					const renderNavBar = (loggedUsername) => {
-						const	logoutButton = document.getElementById("btnLog");
-						logoutButton.classList.remove("displayNavButtons");
-						logoutButton.classList.add("hideNavButtons");
-
-						document.getElementById("btnReg").classList.remove("displayNavButtons");
-						document.getElementById("btnReg").classList.add("hideNavButtons");
-
-						document.getElementById("btnLogOut").classList.remove("hideNavButtons");
-						document.getElementById("btnLogOut").classList.add("displayNavButtons");
-
-						document.getElementById("userDisplayA").innerHTML = loggedUsername;
-						document.getElementById("userDisplay").classList.remove("hideNavButtons");
-						document.getElementById("userDisplay").classList.add("displayNavButtons");
-
-					}
-
+					renderNavBar();
 					renderNavBar(window.localStorage.getItem("loggedUsername"));
 
 					window.localStorage.setItem("authToken", apiResponse.accessToken);
 					var formElement = document.getElementById("formOpenModal");
 					formElement.parentNode.removeChild(formElement);
-				}
+					}
+
+
+
 
 				function afterAuthFail(apiError,){
 					if (formType === "Login") {
