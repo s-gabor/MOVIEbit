@@ -1,35 +1,31 @@
+const DELETE_CONFIRMATION_TRUE = 'Movie deleted!';
+const DELETE_CONFIRMATION_FALSE = 'You\'re not authorized to delete movies.<br><br>Please Log In first.';
+const API_ROOT = "https://ancient-caverns-16784.herokuapp.com/";
+
 function deleteMovie() {
-  console.log('delete clicked!');
-  const html = this.parentNode;
+  const html = this.parentNode; // ES6 "this" has different meaning => const html = document.querySelector('.details-btns');
   const id = window.localStorage.getItem('selectedMovie');
+
   const movie = new Movie({_id: id });
   movie.deleteMovie()
     .then(response => {
-      alert('Movie deleted!', response); // TODO: display proper delete confirmation
-      html.remove();
+      if (response.ok) {
+        promptInfoMessage(DELETE_CONFIRMATION_TRUE); // log in on movieDetails(not on home) => not authorized to delete movies! WHY ???
+        html.remove(); // WHY do we need to remove this (edit/delete buttons) ???
+      } else {
+        promptInfoMessage(DELETE_CONFIRMATION_FALSE);
+      }   
+      document.getElementById('redirectLink').setAttribute('href', './home.html');
     })
-    .catch(err => console.log(err))
+    .catch(err => promptInfoMessage(err))
 }
-
-// const deleteMovie = () => { // in ES6 "this" has different meaning --> will point to window object
-//   console.log('delete clicked!');
-//   const html = document.querySelector('.details-btns');
-//   const id = window.localStorage.getItem('selectedMovie');
-//   const movie = new Movie({_id: id });
-//   movie.deleteMovie()
-//     .then(response => {
-//       console.log(response);
-//       html.remove();
-//     })
-//     .catch(err => console.log(err))
-// }
 
 const editMovie = () => {
-  console.log('edit clicked!');
+  promptInfoMessage('edit clicked!');
 }
 
-const deleteBtn = document.getElementById('delete_btn');
 const editBtn = document.getElementById('edit_btn');
+const deleteBtn = document.getElementById('delete_btn');
 
 if (deleteBtn || editBtn) { // check if movieDetails.html has loaded
   deleteBtn.addEventListener('click', deleteMovie);
@@ -37,14 +33,13 @@ if (deleteBtn || editBtn) { // check if movieDetails.html has loaded
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  isLogged();
+  isLogged(); // save username to localStorage and render navigation-bar
+
   const movieId = window.localStorage.getItem('selectedMovie');
-  const apiRoot = "https://ancient-caverns-16784.herokuapp.com/";
-  // fetch movie details for the selected movie
-  fetch(apiRoot + 'movies/' + movieId)
+
+  fetch(API_ROOT + 'movies/' + movieId)
     .then(response => response.json())
-    .then(movie => {
-      // update template with the current movie data
+    .then(movie => { // update template with the current movie data
       document.getElementById('selectedMoviePoster').setAttribute('src', movie.Poster);
       document.getElementById('selectedMovieTitle').innerHTML = movie.Title;
       document.getElementById('selectedMovieYear').innerHTML = movie.Year;
@@ -58,6 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('selectedMovieRating').innerHTML = movie.imdbRating;
       document.getElementById('selectedMovieVotes').innerHTML = movie.imdbVotes;
     })
-
-
 });
