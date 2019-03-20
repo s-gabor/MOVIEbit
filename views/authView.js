@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', onHtmlLoaded);
+function renderNavBar(loggedUsername){
+	const	logoutButton = document.getElementById("btnLog");
+	logoutButton.classList.remove("displayNavButtons");
+	logoutButton.classList.add("hideNavButtons");
+
+	document.getElementById("btnReg").classList.remove("displayNavButtons");
+	document.getElementById("btnReg").classList.add("hideNavButtons");
+
+	document.getElementById("btnLogOut").classList.remove("hideNavButtons");
+	document.getElementById("btnLogOut").classList.add("displayNavButtons");
+
+	document.getElementById("userDisplayA").innerHTML = loggedUsername;
+	document.getElementById("userDisplay").classList.remove("hideNavButtons");
+	document.getElementById("userDisplay").classList.add("displayNavButtons");
+}
 
 function onHtmlLoaded() {
 
@@ -50,6 +65,7 @@ function createLoginForm(formType) {
 
 		function apiMeth(){
 			var pa_UserName = document.getElementById("username").value;
+			window.localStorage.setItem("loggedUsername", pa_UserName);
 			var pa_Password = document.getElementById("password").value;
 			var errorMessage = document.getElementById("errorMessage");
 			if (formType === "Register") {
@@ -86,7 +102,7 @@ function createLoginForm(formType) {
 								afterAuthSuccess(response,user.username);
 					},
 						function(error) {										//ERROR callback
-								console.log("Error:",error);	
+								console.log("Error:",error);
 								afterAuthFail(error);
 						}
 					);
@@ -101,30 +117,23 @@ function createLoginForm(formType) {
 						function(error) {										//ERROR callback
 							console.log("Error:",error);
 							afterAuthFail(error);
-	
+
 						}
 					);
 				}
 				function afterAuthSuccess(apiResponse,username) {
-					document.getElementById("btnLog").classList.remove("displayNavButtons");
-					document.getElementById("btnLog").classList.add("hideNavButtons");
-	
-					document.getElementById("btnReg").classList.remove("displayNavButtons");
-					document.getElementById("btnReg").classList.add("hideNavButtons");
-	
-					document.getElementById("btnLogOut").classList.remove("hideNavButtons");
-					document.getElementById("btnLogOut").classList.add("displayNavButtons");
-	
-					document.getElementById("userDisplayA").innerHTML = username;
-					document.getElementById("userDisplay").classList.remove("hideNavButtons");
-					document.getElementById("userDisplay").classList.add("displayNavButtons");
-	
+					renderNavBar();
+					renderNavBar(window.localStorage.getItem("loggedUsername"));
+
 					window.localStorage.setItem("authToken", apiResponse.accessToken);
 
 					var formElement = document.getElementById("formOpenModal");
 					formElement.parentNode.removeChild(formElement);
-				}
-	
+					}
+
+
+
+
 				function afterAuthFail(apiError,){
 					if (formType === "Login") {
 						if(apiError.status === 401 && apiError.statusText === 'Unauthorized') {
@@ -134,9 +143,9 @@ function createLoginForm(formType) {
 						if(apiError.status === 409 && apiError.statusText === 'Conflict') {
 							errorMessage.innerHTML = apiError.responseJSON.message;
 						}
-					}	
-				} 
-	
+					}
+				}
+
 			} // end of afterValidInputs
 
 
@@ -146,18 +155,19 @@ function createLoginForm(formType) {
 	function doLogout() {
 		const logoutApi = `${apiRoot}/auth/logout`;
 		const token = window.localStorage.getItem("authToken");
+		window.localStorage.setItem("loggedUsername", "");
 		var user = new User();
-		user.logout(logoutApi,token).then(
-			function(response){ 								//SUCCESS callback
-				console.log("Success logout:",response);
-				afterLogoutSuccess(response);
-			},
-			function(error) {										//ERROR callback
-				console.log("Error logout:",error);
-				afterLogoutFail(error);
-			}
-		);
-	
+		user.logout(logoutApi,token)
+				.then(response => afterLogoutSuccess(response), err => afterLogoutFail(err)) // Success callback
+		// 	.then(function(response){ 								//SUCCESS callback
+		// 			afterLogoutSuccess(response);
+		// 			},
+		// 	function(error) {										//ERROR callback
+		// 		console.log("Error logout:",error);
+		// 		afterLogoutFail(error);
+		// 	}
+		// );
+
 		function afterLogoutSuccess(apiResponse){
 			promptInfoMessage(apiResponse.message);
 
@@ -176,7 +186,7 @@ function createLoginForm(formType) {
 			window.localStorage.removeItem("authToken");
 		}
 
-		function afterLogoutFail(apiResponse){	
+		function afterLogoutFail(apiResponse){
 			promptInfoMessage(apiResponse.message);
 		}
 
@@ -195,7 +205,7 @@ function createLoginForm(formType) {
 		document.body.appendChild(modalContainer);
 		document.getElementById("hitBtn").addEventListener("click", function(){
 			var msgElement = document.getElementById("formOpenModal");
-			msgElement.parentNode.removeChild(msgElement);	
+			msgElement.parentNode.removeChild(msgElement);
     });
 
 	}

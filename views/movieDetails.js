@@ -37,6 +37,7 @@ if (deleteBtn || editBtn) { // check if movieDetails.html has loaded
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  isLogged();
   const movieId = window.localStorage.getItem('selectedMovie');
   const apiRoot = "https://ancient-caverns-16784.herokuapp.com/";
   // fetch movie details for the selected movie
@@ -57,6 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('selectedMovieRating').innerHTML = movie.imdbRating;
       document.getElementById('selectedMovieVotes').innerHTML = movie.imdbVotes;
     })
-  
-  
+
+
 });
