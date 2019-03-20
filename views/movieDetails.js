@@ -14,7 +14,7 @@ function deleteMovie() {
         html.remove(); // WHY do we need to remove this (edit/delete buttons) ???
       } else {
         promptInfoMessage(DELETE_CONFIRMATION_FALSE);
-      }   
+      }
       document.getElementById('redirectLink').setAttribute('href', './home.html');
     })
     .catch(err => promptInfoMessage(err))
