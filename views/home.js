@@ -7,7 +7,7 @@ const updateLocalStorage = (movieId) => {
 }
 
 function onHtmlLoaded() {
-  isLogged();
+  renderNavBar();
   let moviesModel = new Movies();
   moviesModel.getMovies()
   .then(function(movies) {

@@ -1,18 +1,37 @@
 document.addEventListener('DOMContentLoaded', onHtmlLoaded);
-function renderNavBar(loggedUsername){
-	const	logoutButton = document.getElementById("btnLog");
-	logoutButton.classList.remove("displayNavButtons");
-	logoutButton.classList.add("hideNavButtons");
+const	loginButton = document.getElementById("btnLog");
+const	registerButton = document.getElementById("btnReg");
+const	userDisplayButton = document.getElementById("userDisplay");
+const	logoutButton = document.getElementById("btnLogOut");
 
-	document.getElementById("btnReg").classList.remove("displayNavButtons");
-	document.getElementById("btnReg").classList.add("hideNavButtons");
+function renderNavBar () {
+	const loggedStatus = window.localStorage.getItem("authToken");
+	if (loggedStatus !== null) {
+		loginButton.classList.remove("displayNavButtons"); // buttons to hide
+		loginButton.classList.add("hideNavButtons");
+		registerButton.classList.remove("displayNavButtons");
+		registerButton.classList.add("hideNavButtons");
 
-	document.getElementById("btnLogOut").classList.remove("hideNavButtons");
-	document.getElementById("btnLogOut").classList.add("displayNavButtons");
+		logoutButton.classList.remove("hideNavButtons");  // buttons to show
+		logoutButton.classList.add("displayNavButtons");
 
-	document.getElementById("userDisplayA").innerHTML = loggedUsername;
-	document.getElementById("userDisplay").classList.remove("hideNavButtons");
-	document.getElementById("userDisplay").classList.add("displayNavButtons");
+		const loggedUsername = window.localStorage.getItem("username");
+		document.getElementById("userDisplayA").innerHTML = loggedUsername;
+		userDisplayButton.classList.remove("hideNavButtons");
+		userDisplayButton.classList.add("displayNavButtons");
+			
+	}
+	else {
+		loginButton.classList.add("displayNavButtons"); // buttons to show
+		loginButton.classList.remove("hideNavButtons");
+		registerButton.classList.add("displayNavButtons");
+		registerButton.classList.remove("hideNavButtons");
+
+		logoutButton.classList.add("hideNavButtons");  // buttons to show
+		logoutButton.classList.remove("displayNavButtons");
+		userDisplayButton.classList.add("hideNavButtons");
+		userDisplayButton.classList.remove("displayNavButtons");
+	}
 }
 
 function onHtmlLoaded() {
@@ -65,7 +84,6 @@ function createLoginForm(formType) {
 
 		function apiMeth(){
 			var pa_UserName = document.getElementById("username").value;
-			window.localStorage.setItem("loggedUsername", pa_UserName);
 			var pa_Password = document.getElementById("password").value;
 			var errorMessage = document.getElementById("errorMessage");
 			if (formType === "Register") {
@@ -122,17 +140,12 @@ function createLoginForm(formType) {
 					);
 				}
 				function afterAuthSuccess(apiResponse,username) {
-					renderNavBar();
-					renderNavBar(window.localStorage.getItem("loggedUsername"));
-
 					window.localStorage.setItem("authToken", apiResponse.accessToken);
-
+					window.localStorage.setItem("username", username);
+					renderNavBar();
 					var formElement = document.getElementById("formOpenModal");
 					formElement.parentNode.removeChild(formElement);
 					}
-
-
-
 
 				function afterAuthFail(apiError,){
 					if (formType === "Login") {
@@ -155,35 +168,23 @@ function createLoginForm(formType) {
 	function doLogout() {
 		const logoutApi = `${apiRoot}/auth/logout`;
 		const token = window.localStorage.getItem("authToken");
-		window.localStorage.setItem("loggedUsername", "");
 		var user = new User();
 		user.logout(logoutApi,token)
-				.then(response => afterLogoutSuccess(response), err => afterLogoutFail(err)) // Success callback
-		// 	.then(function(response){ 								//SUCCESS callback
-		// 			afterLogoutSuccess(response);
-		// 			},
-		// 	function(error) {										//ERROR callback
-		// 		console.log("Error logout:",error);
-		// 		afterLogoutFail(error);
-		// 	}
-		// );
+		//		.then(response => afterLogoutSuccess(response), err => afterLogoutFail(err)) // Success callback
+			.then(function(response){ 								//SUCCESS callback
+					afterLogoutSuccess(response);
+					},
+			function(error) {										//ERROR callback
+				console.log("Error logout:",error);
+				afterLogoutFail(error);
+			}
+		);
 
 		function afterLogoutSuccess(apiResponse){
 			promptInfoMessage(apiResponse.message);
-
-			document.getElementById("btnLog").classList.add("displayNavButtons");
-			document.getElementById("btnLog").classList.remove("hideNavButtons");
-
-			document.getElementById("btnReg").classList.add("displayNavButtons");
-			document.getElementById("btnReg").classList.remove("hideNavButtons");
-
-			document.getElementById("btnLogOut").classList.add("hideNavButtons");
-			document.getElementById("btnLogOut").classList.remove("displayNavButtons");
-
-			document.getElementById("userDisplay").classList.add("hideNavButtons");
-			document.getElementById("userDisplay").classList.remove("displayNavButtons");
-
 			window.localStorage.removeItem("authToken");
+			window.localStorage.removeItem("username");
+			renderNavBar();
 		}
 
 		function afterLogoutFail(apiResponse){

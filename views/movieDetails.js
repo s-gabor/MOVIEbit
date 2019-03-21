@@ -2,6 +2,7 @@ const DELETE_CONFIRMATION_TRUE = 'Movie deleted!';
 const DELETE_CONFIRMATION_FALSE = 'You\'re not authorized to delete movies.<br><br>Please Log In first.';
 const API_ROOT = "https://ancient-caverns-16784.herokuapp.com/";
 
+
 function deleteMovie() {
   const html = this.parentNode; // ES6 "this" has different meaning => const html = document.querySelector('.details-btns');
   const id = window.localStorage.getItem('selectedMovie');
@@ -33,7 +34,7 @@ if (deleteBtn || editBtn) { // check if movieDetails.html has loaded
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  isLogged(); // save username to localStorage and render navigation-bar
+  renderNavBar(); 
 
   const movieId = window.localStorage.getItem('selectedMovie');
 

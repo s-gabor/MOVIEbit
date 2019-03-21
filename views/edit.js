@@ -1,3 +1,4 @@
+renderNavBar();
 const API_ROOT = "https://ancient-caverns-16784.herokuapp.com/";
 
 fetch(API_ROOT + 'movies/' + window.localStorage.getItem('selectedMovie'))
