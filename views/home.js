@@ -13,6 +13,10 @@ function onHtmlLoaded() {
   .then(function(movies) {
     displayMovies(movies);
   });
+  
+  document.getElementById('add_btn').addEventListener('click', () => {
+    window.localStorage.setItem('add-edit-mode', 'add')
+  });
 }
 function displayMovies(movies) {
   const container = document.getElementById('movieList');

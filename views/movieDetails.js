@@ -23,6 +23,7 @@ function deleteMovie() {
 
 const editMovie = () => {
   promptInfoMessage('edit clicked!');
+  window.localStorage.setItem('add-edit-mode', 'edit');
 }
 
 const editBtn = document.getElementById('edit_btn');
