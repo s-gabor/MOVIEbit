@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => console.log(err))
     } else if (mode === 'add') {
-        console.log('add mode');
         document.getElementById('saveBtn').addEventListener('click', () => {
             const data = {
                 Title: document.getElementById('title-input').value,
@@ -40,20 +39,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 Poster: document.getElementById('uploadPoster-input').value,
                 Plor: document.getElementById('description-input').innerText
             }
-            console.log('add mode: data', data);
+            
             const token = window.localStorage.getItem('authToken');
-            console.log(token);
-            fetch('https://ancient-caverns-16784.herokuapp.com/movies', {
-                method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
-                body: JSON.stringify(data), // Coordinate the body type with 'Content-Type'
-                headers: new Headers({
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'x-auth-token': token
-                }),
-            })
-            .then(response => response.json())
-            .then(resp => console.log(resp))
+
+            $.ajax({
+                url: 'https://ancient-caverns-16784.herokuapp.com/movies',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'x-auth-token': token
+                },
+                data: data,
+                success: function(result) {
+                    promptInfoMessage(result.Title + ' was added database.');
+                    const link = document.getElementById('redirectLink');
+                    link.addEventListener('click', () => {
+                        link.setAttribute('href', './home.html');
+                    })
+                }
+            });
+
+            // fetch('https://ancient-caverns-16784.herokuapp.com/movies', {
+            //     method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
+            //     body: JSON.stringify(data), // Coordinate the body type with 'Content-Type'
+            //     headers: new Headers({
+            //     'Content-Type': 'application/x-www-form-urlencoded',
+            //     'x-auth-token': token
+            //     }),
+            // })
+            // .then(response => response.json())
+            // .then(resp => console.log(resp))
         });
-        console.log('add mode after fetch!');
     }
 })
