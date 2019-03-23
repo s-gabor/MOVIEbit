@@ -1,26 +1,59 @@
+const API_ROOT_MOVIES = 'https://ancient-caverns-16784.herokuapp.com/movies/';
+
 // Movie model
 function Movie(options = {}) {
   this._id = options._id;
   this.Title = options.Title;
   this.Year = options.Year;
-  this.Poster = options.Poster;
+  this.Runtime = options.Runtime;
   this.Genre = options.Genre;
-  this.Type = options.Type;
+  this.country = options.Country;
+  this.Language = options.Language;
   this.imdbRating = options.imdbRating;
+  this.imdbVotes = options.imdbVotes;
   this.imdbID = options.imdbID;
+  this.Type = options.Type;
+  this.Poster = options.Poster;
+  this.Plot = options.Plot;
 }
 
-const myHeaders = new Headers({
-  'Content-Type': 'application/json',
-  'x-auth-token': localStorage.getItem("authToken")
-})
+const getHeaders = () => {
+  return {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'x-auth-token': window.localStorage.getItem('authToken')
+  };
+}
 
-Movie.prototype.deleteMovie = function () {
-  
-  return fetch(apiRoot + "movies/" + this._id,
-  {
-    headers: myHeaders,
-    method: "DELETE"
-  })
-  .then(response => response)
+Movie.prototype.getMovie = function (_id) {
+  return $.ajax({
+    url: API_ROOT_MOVIES + _id,
+    method: 'GET',
+    headers: getHeaders()
+  });
+}
+
+Movie.prototype.deleteMovie = function (_id) {
+  return $.ajax({
+    url: API_ROOT_MOVIES + _id,
+    method: 'DELETE',
+    headers: getHeaders()
+  });
+}
+
+Movie.prototype.addMovie = function (data) {
+  return $.ajax({
+    url: API_ROOT_MOVIES,
+    method: 'POST',
+    headers: getHeaders(),
+    data: data
+  });
+}
+
+Movie.prototype.editMovie = function (data, id) {
+  return $.ajax({
+    url: API_ROOT_MOVIES + id,
+    method: 'PUT',
+    headers: getHeaders(),
+    data: data
+  });
 }

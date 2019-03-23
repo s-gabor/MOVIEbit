@@ -1,24 +1,17 @@
-const DELETE_CONFIRMATION_TRUE = 'Movie deleted!';
-const DELETE_CONFIRMATION_FALSE = 'You\'re not authorized to delete movies.<br><br>Please Log In first.';
 const API_ROOT = "https://ancient-caverns-16784.herokuapp.com/";
 
 
 function deleteMovie() {
-  const html = this.parentNode; // ES6 "this" has different meaning => const html = document.querySelector('.details-btns');
-  const id = window.localStorage.getItem('selectedMovie');
+  // const html = this.parentNode; // ES6 "this" has different meaning => const html = document.querySelector('.details-btns');
+  const _id = window.localStorage.getItem('selectedMovie');
 
-  const movie = new Movie({_id: id });
-  movie.deleteMovie()
-    .then(response => {
-      if (response.ok) {
-        promptInfoMessage(DELETE_CONFIRMATION_TRUE); // log in on movieDetails(not on home) => not authorized to delete movies! WHY ???
-        html.remove(); // WHY do we need to remove this (edit/delete buttons) ???
-      } else {
-        promptInfoMessage(DELETE_CONFIRMATION_FALSE);
-      }
+  const movie = new Movie();
+  movie.deleteMovie(_id)
+    .then(success => {
+      promptInfoMessage(success);
       document.getElementById('redirectLink').setAttribute('href', './home.html');
     })
-    .catch(err => promptInfoMessage(err))
+    .catch(error => promptInfoMessage(error.responseJSON.message))
 }
 
 const editMovie = () => {
