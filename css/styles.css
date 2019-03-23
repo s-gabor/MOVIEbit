@@ -249,12 +249,13 @@ a:focus {
     padding: 0;
     font-family: var(--main-font);
     width: 100%;
-    height: auto;
+    height: 380px;
     overflow: hidden;
 }
 
 .slide-content img {
     width: 100%;
+    height: auto;
 }
 
 .carousel-container {
@@ -717,7 +718,7 @@ footer {
 
 @media all and (min-width: 768px) {
     footer {
-        padding: 30px 0;
+        padding: 100px 0;
     }
 
     .footer-title {
