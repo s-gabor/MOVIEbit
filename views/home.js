@@ -15,7 +15,17 @@ function onHtmlLoaded() {
   });
   
   document.getElementById('add_btn').addEventListener('click', () => {
-    window.localStorage.setItem('add-edit-mode', 'add')
+    window.localStorage.setItem('add-edit-mode', 'add');
+  });
+
+  document.getElementById('regenerate_btn').addEventListener('click', () => {
+    const movie = new Movie();
+    movie.regenerateDB()
+      .then(success => {
+        promptInfoMessage('Database was populated!');
+        document.getElementById('redirectLink').setAttribute('href', './home.html');
+      })
+      .catch(error => promptInfoMessage(error))
   });
 }
 function displayMovies(movies) {

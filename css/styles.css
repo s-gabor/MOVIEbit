@@ -236,6 +236,10 @@ a:focus {
     
 }
 
+#regenerate_btn {
+    float: left;
+}
+
 /* ----------------CAROUSEL SLIDER------------------ */
 
 #slider,

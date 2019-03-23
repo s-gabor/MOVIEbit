@@ -57,3 +57,11 @@ Movie.prototype.editMovie = function (data, id) {
     data: data
   });
 }
+
+Movie.prototype.regenerateDB = function () {
+  return $.ajax({
+    url: API_ROOT_MOVIES + 'all',
+    method: 'POST',
+    headers: getHeaders()
+  });
+}
