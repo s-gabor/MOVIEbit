@@ -1,8 +1,8 @@
 const API_ROOT = "https://ancient-caverns-16784.herokuapp.com/";
 
+renderNavBar(); 
 
 function deleteMovie() {
-  // const html = this.parentNode; // ES6 "this" has different meaning => const html = document.querySelector('.details-btns');
   const _id = window.localStorage.getItem('selectedMovie');
 
   const movie = new Movie();
@@ -18,22 +18,17 @@ const editMovie = () => {
   window.localStorage.setItem('add-edit-mode', 'edit');
 }
 
-const editBtn = document.getElementById('edit_btn');
-const deleteBtn = document.getElementById('delete_btn');
-
-if (deleteBtn || editBtn) { // check if movieDetails.html has loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const editBtn = document.getElementById('edit_btn');
+  const deleteBtn = document.getElementById('delete_btn');
   deleteBtn.addEventListener('click', deleteMovie);
   editBtn.addEventListener('click', editMovie);
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderNavBar(); 
-
+  const movie = new Movie();
   const movieId = window.localStorage.getItem('selectedMovie');
 
-  fetch(API_ROOT + 'movies/' + movieId)
-    .then(response => response.json())
-    .then(movie => { // update template with the current movie data
+  movie.getMovie(movieId)
+    .then(movie => {
       document.getElementById('selectedMoviePoster').setAttribute('src', movie.Poster);
       document.getElementById('selectedMovieTitle').innerHTML = movie.Title;
       document.getElementById('selectedMovieYear').innerHTML = movie.Year;
