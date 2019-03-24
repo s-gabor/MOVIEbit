@@ -22,12 +22,21 @@ function onHtmlLoaded() {
     const movie = new Movie();
     movie.regenerateDB()
       .then(success => {
+        success.forEach(element => {
+          if (element.Poster === 'N/A') {
+            const movieToEdit = new Movie();
+            const defaultPoster = 'https://m.media-amazon.com/images/M/MV5BMTI3NzczMTk5NF5BMl5BanBnXkFtZTcwNDM5NjEzMQ@@._V1_SX300.jpg';
+            movieToEdit.editMovie({Poster: defaultPoster}, element._id);
+          }
+        });
+        
         promptInfoMessage('Database was populated!');
         document.getElementById('redirectLink').setAttribute('href', './home.html');
       })
       .catch(error => promptInfoMessage(error))
   });
 }
+
 function displayMovies(movies) {
   const container = document.getElementById('movieList');
 
@@ -37,120 +46,117 @@ function displayMovies(movies) {
     html.setAttribute("class", "movie-item");
     html.setAttribute("data-id", val._id);
     html.setAttribute("href", "./movieDetails.html");
-    html.innerHTML = `
-      <div class="poster-container">
-        <img src=${val.Poster}/>
-      </div>
-      <p class="movie-title">${val.Title}</p>
-    `;
+    html.innerHTML = 
+      `
+        <div class="poster-container">
+          <img src=${val.Poster}/>
+        </div>
+        <p class="movie-title">${val.Title}</p>
+      `;
     html.addEventListener("click", () => updateLocalStorage(val._id));
-  container.appendChild(html);
-
+    container.appendChild(html);
   });
 
   showPagination(movies.pagination);
-
 }
-
 
 // Search functionality
 (function () {
 
-    var searchBtn = $('#searchBtn');
+    const searchBtn = $('#searchBtn');
 
     searchBtn.on('click', function () {
-      var searchParams = gatherData();
+      const searchParams = gatherData();
       ajaxCall(searchParams);
     });
 
     // Dynamic search on keyup
-    var searchBtn = $('#filtersList');
-    searchBtn.on('keyup', function () {
-      var searchParams = gatherData();
+    const searchList = $('#filtersList');
+    searchList.on('keyup', function () {
+      const searchParams = gatherData();
       ajaxCall(searchParams);
     });
 
     function gatherData() {
-      var searchParams = {};
+      const searchParams = {};
 
-      var title = $('#title').val().trim();
+      const title = $('#title').val().trim();
 
       if(title != ""){
         searchParams.Title = title;
       }
 
-      var yearBox = $('#yearBox');
-      var year = $('#year').val().trim();
+      const yearBox = $('#yearBox');
+      const year = $('#year').val().trim();
 
       if(year != "" && yearBox.is(":checked")){
         searchParams.Year = year;
       }
 
-      var runtimeBox = $('#runtimeBox');
-      var runtime = $('#runtime').val();
+      const runtimeBox = $('#runtimeBox');
+      const runtime = $('#runtime').val();
 
       if(runtimeBox.is(":checked") && runtime != ""){
         searchParams.Runtime = runtime.trim() + ' min';
       }
 
-      var genreBox = $('#genreBox');
-      var genre = $('#genre').val();
+      const genreBox = $('#genreBox');
+      const genre = $('#genre').val();
 
       if(genreBox.is(":checked") && genre != ""){
         searchParams.Genre = genre;
       }
 
-      var languageBox = $('#languageBox');
-      var language = $('#language').val();
+      const languageBox = $('#languageBox');
+      const language = $('#language').val();
 
       if(languageBox.is(":checked") && language != ""){
         searchParams.Language = language;
       }
 
 
-      var countryBox = $('#countryBox');
-      var country = $('#country').val();
+      const countryBox = $('#countryBox');
+      const country = $('#country').val();
 
       if(countryBox.is(":checked") && country != "") {
         searchParams.Country = country;
       }
 
-      var posterBox = $('#posterBox');
-      var poster = $('#poster').val();
+      const posterBox = $('#posterBox');
+      const poster = $('#poster').val();
 
       if(posterBox.is(":checked") && poster != ""){
         searchParams.Poster = poster;
       }
 
-      var imdbRatingBox = $('#imdbRatingBox');
-      var imdbRating = $('#imdbRating').val();
+      const imdbRatingBox = $('#imdbRatingBox');
+      const imdbRating = $('#imdbRating').val();
 
       if(imdbRatingBox.is(":checked") && imdbRating != ""){
         searchParams.imdbRating = imdbRating;
       }
 
-      var imdbVotesBox = $('#imdbVotesBox');
-      var imdbVotes = $('#imdbVotes').val();
+      const imdbVotesBox = $('#imdbVotesBox');
+      const imdbVotes = $('#imdbVotes').val();
 
       if(imdbVotesBox.is(":checked") && imdbVotes != ""){
         searchParams.imdbVotes = imdbVotes;
       }
 
-      var imdbIDBox = $('#imdbIDBox');
-      var imdbID = $('#imdbID').val();
+      const imdbIDBox = $('#imdbIDBox');
+      const imdbID = $('#imdbID').val();
 
       if(imdbIDBox.is(":checked") && imdbID != ""){
         searchParams.imdbID = imdbID;
       }
 
-      var typeBox = $('#typeBox');
-      var type = $('#type').val();
+      const typeBox = $('#typeBox');
+      const type = $('#type').val();
 
       if(typeBox.is(":checked") && type != ""){
         searchParams.Type = type;
       }
+
       return searchParams;
     }
-
-
-  })();
+})();
