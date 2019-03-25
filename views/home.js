@@ -82,35 +82,35 @@ function displayMovies(movies) {
 
       const title = $('#title').val().trim();
 
-      if(title != ""){
+      if(title !== ""){
         searchParams.Title = title;
       }
 
       const yearBox = $('#yearBox');
       const year = $('#year').val().trim();
 
-      if(year != "" && yearBox.is(":checked")){
+      if(year !== "" && yearBox.is(":checked")){
         searchParams.Year = year;
       }
 
       const runtimeBox = $('#runtimeBox');
       const runtime = $('#runtime').val();
 
-      if(runtimeBox.is(":checked") && runtime != ""){
+      if(runtimeBox.is(":checked") && runtime !== ""){
         searchParams.Runtime = runtime.trim() + ' min';
       }
 
       const genreBox = $('#genreBox');
       const genre = $('#genre').val();
 
-      if(genreBox.is(":checked") && genre != ""){
+      if(genreBox.is(":checked") && genre !== ""){
         searchParams.Genre = genre;
       }
 
       const languageBox = $('#languageBox');
       const language = $('#language').val();
 
-      if(languageBox.is(":checked") && language != ""){
+      if(languageBox.is(":checked") && language !== ""){
         searchParams.Language = language;
       }
 
@@ -118,42 +118,42 @@ function displayMovies(movies) {
       const countryBox = $('#countryBox');
       const country = $('#country').val();
 
-      if(countryBox.is(":checked") && country != "") {
+      if(countryBox.is(":checked") && country !== "") {
         searchParams.Country = country;
       }
 
       const posterBox = $('#posterBox');
       const poster = $('#poster').val();
 
-      if(posterBox.is(":checked") && poster != ""){
+      if(posterBox.is(":checked") && poster !== ""){
         searchParams.Poster = poster;
       }
 
       const imdbRatingBox = $('#imdbRatingBox');
       const imdbRating = $('#imdbRating').val();
 
-      if(imdbRatingBox.is(":checked") && imdbRating != ""){
+      if(imdbRatingBox.is(":checked") && imdbRating !== ""){
         searchParams.imdbRating = imdbRating;
       }
 
       const imdbVotesBox = $('#imdbVotesBox');
       const imdbVotes = $('#imdbVotes').val();
 
-      if(imdbVotesBox.is(":checked") && imdbVotes != ""){
+      if(imdbVotesBox.is(":checked") && imdbVotes !== ""){
         searchParams.imdbVotes = imdbVotes;
       }
 
       const imdbIDBox = $('#imdbIDBox');
       const imdbID = $('#imdbID').val();
 
-      if(imdbIDBox.is(":checked") && imdbID != ""){
+      if(imdbIDBox.is(":checked") && imdbID !== ""){
         searchParams.imdbID = imdbID;
       }
 
       const typeBox = $('#typeBox');
       const type = $('#type').val();
 
-      if(typeBox.is(":checked") && type != ""){
+      if(typeBox.is(":checked") && type !== ""){
         searchParams.Type = type;
       }
 

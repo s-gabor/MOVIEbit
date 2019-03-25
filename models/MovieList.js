@@ -17,31 +17,31 @@ Movies.prototype.getMovies = function() {
     
     objData = val.split("=");
    
-    if (objData[0] == "Title") {
+    if (objData[0] === "Title") {
       obj.Title = objData[1];
     }
 
-    if (objData[0] == "skip") {
+    if (objData[0] === "skip") {
       obj.skip = objData[1];
     }
 
-    if (objData[0] == "take") {
+    if (objData[0] === "take") {
       obj.take = objData[1];
     }
 
-    if (objData[0] == "Year") {
+    if (objData[0] === "Year") {
       obj.Year = objData[1];
     }
 
-    if (objData[0] == "Genre") {
+    if (objData[0] === "Genre") {
       obj.Genre = objData[1];
     }
 
-    if (objData[0] == "imdbRating") {
+    if (objData[0] === "imdbRating") {
       obj.imdbRating = objData[1];
     }
 
-    if (objData[0] == "imdbID") {
+    if (objData[0] === "imdbID") {
       obj.imdbID = objData[1];
     }
 
@@ -97,7 +97,7 @@ function ajaxCall(searchParams) {
 
   $.each(searchParams, function(i, val) {
     if (val) {
-      if (i == "Year") {    
+      if (i === "Year") {    
         searchParams.Year = val.replace("-", "–");
       }
      
