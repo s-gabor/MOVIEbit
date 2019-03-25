@@ -45,7 +45,11 @@ const successfulRequest = (success, mode) => {
     document.getElementById('redirectLink').setAttribute('href', './home.html');
 }
 
+const addEditHeading = document.getElementById('add-edit-heading');
+
 if (mode === 'edit') {
+    addEditHeading.innerText = 'Edit movie';
+    
     const movieId = window.localStorage.getItem('selectedMovie');
 
     populateFieldsData(movieId);
@@ -59,6 +63,8 @@ if (mode === 'edit') {
             .catch(error => promptInfoMessage(error.responseJSON.message))
     })
 } else if (mode === 'add') {
+    addEditHeading.innerText = 'Add new movie';
+
     document.getElementById('saveBtn').addEventListener('click', () => {
         const movie = new Movie();
         const dataObj = getFieldsData();
