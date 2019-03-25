@@ -13,7 +13,7 @@ const getFieldsData = () => {
         imdbID: document.getElementById('imdbId-input').value,
         Type: document.getElementById('type-input').value,
         Poster: document.getElementById('uploadPoster-input').value,
-        Plot: document.getElementById('description-input').innerText
+        Plot: document.getElementById('description-input').value
     };
 }
 
@@ -33,7 +33,7 @@ const populateFieldsData = movieId => {
             document.getElementById('imdbId-input').value = movie.imdbID;
             document.getElementById('type-input').value = movie.Type;
             document.getElementById('uploadPoster-input').value = movie.Poster;
-            document.getElementById('description-input').innerHTML = movie.Plot;
+            document.getElementById('description-input').value = movie.Plot;
         })
         .catch(error => promptInfoMessage(error.responseJSON.message))
 }
