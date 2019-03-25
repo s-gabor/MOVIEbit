@@ -237,12 +237,15 @@ a:focus {
     .nav-link:hover::before {
         transform: scale(1,1);
     }
-    
+}
+#regenerate_btn { /*Populate DB on iPhone 5*/
+    float: right;
+}
+@media all and (min-width: 324px) { /*Populate DB on everything else*/
     #regenerate_btn {
         float: left;
     }
 }
-
 /* ----------------CAROUSEL SLIDER------------------ */
 
 #slider,
